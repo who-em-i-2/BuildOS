@@ -3,12 +3,12 @@ env: # Environment variables to pass to all tasks
     CIRRUS_WORKING_DIR: "/tmp/ci" # Where to clone the aosp-builder repo
 
 # store our secrets here
-    my_og_token: "ENCRYPTED[47fca04808f9f0c0fc1cdb48e9e069b50a70c31c549813d2be15f34344954edf7bbb521db1de02fed95412ba3c408faa]" # main id
-    github_token: "ENCRYPTED[!42c5f4329b3ff90c6799039b83d5324e8d9b3be65ca8aabaf619abaa068bc4c84b96782d39b162dafbb60f7399f8f12a!]" # alt id
-    bot_api: "ENCRYPTED[75e85fbdf29feb4bd03908d6855bbd840251286bef26be4428e12a724e66837fb37a709364d4ced0b1dd2d66c5dbb02e]"
+    my_og_token: "ENCRYPTED[5de7dab1d5edc4cf6881fd1ef1616322738a1040b3ac0fd26ce1050330e59fa560f48e50b5fb459de21f7d1828b14559]" # main id
+    github_token: "ENCRYPTED[72f2c8676c2376db3bdbdee2ddbb655b25b5d4cc92018dd03d7701cf2dbb1adb33f034014507aa65387a4f7a2759a686]" # alt id
+    bot_api: "ENCRYPTED[cae8616563f451b9c0f45bb4dc2c006744f90c362fdab03b2e923c0d8df72de5aa3a1379ac7f84bca017a66b42e3205b]"
     chat_id: "-1001428571638"
     git_cookies: 0
-    REAL_REPO_OWNER: "ENCRYPTED[c3e2d6a1ebea719a79107c1dea548472210aa95e3106d5cb08decba66fa8e44b088f770441919b673482317482ef67d7]" # main id
+    REAL_REPO_OWNER: "ENCRYPTED[e3fb35ffe2758428a850b52f88daf80b19307a39c1526a644b9abba42a8fb8e12316d71b6b8209176de8c0ecf9dd83b2]" # main id
 
 # store information about git here
     gmail: ehteshammalik18998@gmail.com
@@ -21,7 +21,7 @@ task:
       cpu: 8
       memory: 32G
     down_background_script:
-      - git clone -b main https://$CIRRUS_REPO_OWNER:$my_og_token@github.com/projects-nexus/ci-script /tmp/cs
+      - git clone -b main https://$REAL_REPO_OWNER:$my_og_token@github.com/projects-nexus/ci-script /tmp/cs
       - mv /tmp/cs/* /tmp/ci
       - bash down*
     symc_script:
