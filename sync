@@ -1,0 +1,42 @@
+#!/bin/bash
+
+mkdir -p /tmp/rom # Where to sync source
+cd /tmp/rom
+
+SECONDS=0
+
+if [[ $git_cookies != 0 ]]; then
+
+sudo touch /etc/mtab
+sudo chmod 777 /etc/mtab
+
+echo "$git_cookies" > ~/git_cookies.sh
+bash ~/git_cookies.sh
+
+fi
+
+# Sync source
+repo init --depth=1 --no-repo-verify -u https://github.com/ArrowOS/android_manifest -b arrow-12.1 -g default,-mips,-darwin,-notdefault
+git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b arrow-4.19 .repo/local_manifests
+
+# Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
+
+# tree
+#git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_xiaomi_lavender -b T-CLO device/xiaomi/lavender
+sed -i 's/CONFIG_LLVM_POLLY=y/# CONFIG_LLVM_POLLY is not set/' kernel/xiaomi/sdm660/arch/arm64/configs/lavender_defconfig
+#git clone --depth=1 https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r433403b.git -b 12.0 prebuilts/clang/host/linux-x86/clang-r433403b
+
+# patch
+#cd /tmp/rom/system/libhidl && curl https://github.com/ArrowOS/android_system_libhidl/commit/fbdf10a33f546d202ae12b4b864177fea9faa998.patch | git am
+#cd /tmp/rom/device/qcom/common && curl https://github.com/wHo-EM-i/android_device_qcom_common/commit/b3a612e836ddf3e9ac766612ee4bd9194b681c95.patch | git am
+#cd /tmp/rom/bionic && curl https://github.com/wHo-EM-i/bionic/commit/61ea0bc221c8ae7992b44c58302e23ab3e748742.patch | git am
+#cd /tmp/rom/hardware/libhardware && curl https://github.com/AOSPA/android_hardware_libhardware/commit/bec92996fbc143620da9a4a3c22a744958535ad5.patch | git am
+
+. /tmp/ci/function
+tg "$rom_name source sync completed!
+Total Size: $(du -sh /tmp/rom | cut -d - -f 1 | cut -d / -f 1)
+Time Took: $(($SECONDS / 60)) minute(s) and $(($SECONDS % 60)) second(s).
+Status: $progress"
+
+echo "$(($SECONDS / 60))" > /tmp/sync_time.txt

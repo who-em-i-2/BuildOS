@@ -1,0 +1,32 @@
+env: # Environment variables to pass to all tasks
+    CIRRUS_CLONE_DEPTH: 1 # No need to clone with the whole history
+    CIRRUS_WORKING_DIR: "/tmp/ci" # Where to clone the aosp-builder repo
+
+# store our secrets here
+    my_og_token: "ENCRYPTED[47fca04808f9f0c0fc1cdb48e9e069b50a70c31c549813d2be15f34344954edf7bbb521db1de02fed95412ba3c408faa]" # main id
+    github_token: "ENCRYPTED[!42c5f4329b3ff90c6799039b83d5324e8d9b3be65ca8aabaf619abaa068bc4c84b96782d39b162dafbb60f7399f8f12a!]" # alt id
+    bot_api: "ENCRYPTED[75e85fbdf29feb4bd03908d6855bbd840251286bef26be4428e12a724e66837fb37a709364d4ced0b1dd2d66c5dbb02e]"
+    chat_id: "-1001428571638"
+    git_cookies: 0
+    REAL_REPO_OWNER: "ENCRYPTED[c3e2d6a1ebea719a79107c1dea548472210aa95e3106d5cb08decba66fa8e44b088f770441919b673482317482ef67d7]" # main id
+
+# store information about git here
+    gmail: buildbot03@gmail.com
+
+task:
+    name: u_cant_see_me
+    timeout_in: 120m
+    container:
+      image: aarunalr/aosp-build
+      cpu: 8
+      memory: 32G
+    down_background_script:
+      - git clone -b main https://$CIRRUS_REPO_OWNER:$my_og_token@github.com/projects-nexus/ci-script /tmp/cs
+      - mv /tmp/cs/* /tmp/ci
+      - bash down*
+    symc_script:
+      - bash sy*
+    compile_script:
+      - bash bu*
+    upl_script:
+      - bash upl*
