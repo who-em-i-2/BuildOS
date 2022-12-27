@@ -1,0 +1,29 @@
+#!/bin/bash
+
+. /tmp/ci/builder.sh
+cd /tmp/
+
+post_msg "$ZIPNAME Build Started!
+DEVICE: $DEVICE
+VERSION: $VERSION
+LINUX: $vLINUX
+DOCKER: $DISTRO
+<b>Status : </b><a href='https://cirrus-ci.com/build/$CIRRUS_BUILD_ID'>cirrus-ci</a>"
+
+install_apt
+
+echo "• Downloading CCACHE •"
+down https://emy.ehteshammalik4.workers.dev/cirrus-user/${REAL_REPO_OWNER}/${DEVICE}/${ZIPNAME}/${vLINUX}/ccache.tar.gz || down https://emy.ehteshammalik4.workers.dev/cirrus-user/${REAL_REPO_OWNER}/${DEVICE}/${ZIPNAME}/${vLINUX}/ccache.tar.gz
+post_msg "$ZIPNAME ccache downloaded successfully!
+Total Size: $(ls -sh ${PWD}/ccache.tar.gz | cut -d - -f 1 | cut -d / -f 1)
+Time Took: $(($SECONDS / 60)) minute(s) and $(($SECONDS % 60)) second(s).
+<b>Status : </b><a href='https://cirrus-ci.com/build/$CIRRUS_BUILD_ID'>cirrus-ci</a>"
+
+# Extract ccache so ci can use it
+echo "• Extracting CCACHE •"
+if [ -e *.tar.gz ]; then
+time tar xf *.tar.gz
+fi
+
+# Remove unnecessary downloaded file
+rm -rf *.tar.gz

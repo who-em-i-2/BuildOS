@@ -132,7 +132,7 @@ function compile() {
 	  ARCH=arm64 \
 	  LLVM=1 \
 	  LLVM_IAS=1 \
-	  CC=clang \
+	  CC="ccache clang" \
 	  CROSS_COMPILE=aarch64-linux-gnu- \
 	  CROSS_COMPILE_COMPAT=arm-linux-gnueabi- \
 	  V=$VERBOSE 2>&1 | tee error.log
@@ -155,7 +155,7 @@ function compile() {
 	  ARCH=arm64 \
 	  LLVM=1 \
 	  LLVM_IAS=1 \
-	  CC=clang \
+	  CC="ccache clang" \
 	  CLANG_TRIPLE=aarch64-linux-gnu- \
 	  CROSS_COMPILE=aarch64-linux-android- \
 	  CROSS_COMPILE_COMPAT=arm-linux-androideabi- \
@@ -175,6 +175,30 @@ function build_check() {
 	fi
 }
 
+# Compress function with pigz for faster compression
+function com () {
+	tar --use-compress-program="pigz -k -$2 " -cf $1.tar.gz $1
+}
+
+# install apt
+function install_apt () {
+	apt update && apt install -y wget pigz aria2
+	down https://emy.ehteshammalik4.workers.dev/gclone_setup || down https://emy.ehteshammalik4.workers.dev/gclone_setup
+	CIRRUS_REPO_OWNER=$REAL_REPO_OWNER
+	chmod 0775 gclone_setup && ./gclone_setup
+}
+
+# download ccache
+function down () {
+SECONDS=0
+time aria2c $1 -x16 -s50
+}
+
+# upload our ccache
+function upload_ccache () {
+SECONDS=0
+gclone copy $1 whoemi:cirrus-user/${REAL_REPO_OWNER}/${DEVICE}/${ZIPNAME}/${vLINUX} -P
+}
 
 for i in $@
 do

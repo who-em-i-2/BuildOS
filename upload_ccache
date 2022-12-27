@@ -1,0 +1,17 @@
+#!/bin/bash
+
+. /tmp/ci/builder.sh
+cd /tmp
+
+# compress in with pigz in a single zip.
+com ccache 0
+
+echo "• Uploading Cache On Gdrive •"
+upload_ccache ccache.tar.gz
+post_msg "$ZIPNAME ccache was uploaded successfully!
+Total Size: $(ls -sh ${PWD}/ccache.tar.gz | cut -d - -f 1 | cut -d / -f 1)
+Time Took: $(($SECONDS / 60)) minute(s) and $(($SECONDS % 60)) second(s).
+<b>Status : </b><a href='https://cirrus-ci.com/build/$CIRRUS_BUILD_ID'>cirrus-ci</a>"
+
+# clean storage
+rm -rf /tmp/*

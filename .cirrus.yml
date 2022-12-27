@@ -19,11 +19,11 @@ task:
       image: nexgang/ubuntu:latest
       cpu: 8
       memory: 32G
-#    down_background_script:
-#      - bash down*
+    down_background_script:
+      - bash down*
     symc_script:
       - bash sy*
     compile_script:
       - bash co*
-#    upl_script:
-#      - bash upl*
+    upl_script:
+      - bash upl*
