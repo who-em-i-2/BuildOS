@@ -5,9 +5,8 @@ env: # Environment variables to pass to all tasks
 # store our secrets here
     my_og_token: "ENCRYPTED[404be91775508a9ce7823873cd4180fb977d1aa381375896e5c6a5e198476a76f58ebc6529c4e2b9ad77d07d4c14e2f0]" # main id
     github_token: "ENCRYPTED[72f2c8676c2376db3bdbdee2ddbb655b25b5d4cc92018dd03d7701cf2dbb1adb33f034014507aa65387a4f7a2759a686]" # alt id
-    bot_api: "ENCRYPTED[cae8616563f451b9c0f45bb4dc2c006744f90c362fdab03b2e923c0d8df72de5aa3a1379ac7f84bca017a66b42e3205b]"
+    token: "ENCRYPTED[cae8616563f451b9c0f45bb4dc2c006744f90c362fdab03b2e923c0d8df72de5aa3a1379ac7f84bca017a66b42e3205b]"
     chat_id: "-1001428571638"
-    git_cookies: 0
     REAL_REPO_OWNER: "ENCRYPTED[21dceb9e8d12795336ccf7fc7d8c101c8af0e9a29b8eaab8c79b926a8848cea4374fc23b80312a28b0013dadbf92983c]" # main id
 
 # store information about git here
@@ -20,13 +19,11 @@ task:
       image: nexgang/ubuntu:latest
       cpu: 8
       memory: 32G
-    down_background_script:
-      - git clone -b main https://$REAL_REPO_OWNER:$my_og_token@github.com/projects-nexus/ci-script /tmp/cs
-      - mv /tmp/cs/* /tmp/ci
-      - bash down*
+#    down_background_script:
+#      - bash down*
     symc_script:
       - bash sy*
     compile_script:
-      - bash bu*
-    upl_script:
-      - bash upl*
+      - bash co*
+#    upl_script:
+#      - bash upl*

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+. /tmp/ci/builder.sh
+cd $KERNEL_DIR
+
+SECONDS=0
+
+# Compile
+post_msg " Starting Compilation...! "
+. /tmp/ci/builder.sh -c
+
+# Check for error and report with logs. if everything fine then upload
+. /tmp/ci/builder.sh -err -upl
