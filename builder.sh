@@ -59,7 +59,7 @@ export DISTRO=$(source /etc/os-release && echo "${NAME}")
 
 
 function clone_kt() {
-	git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel -b staging
+	git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel -b x1-test
 }
 
 function clone_tc() {
@@ -119,12 +119,14 @@ function push() {
 
 function upl_zip() {
 	# Copy Files To AnyKernel3
+	if [ -a "$IMAGE" ]; then
 	cp $IMAGE /tmp/AK3
 	# Zipping
 	cd /tmp/AK3 || exit 1
 	zip -r9 ${FINAL_ZIP} *
 	MD5CHECK=$(md5sum "$FINAL_ZIP" | cut -d' ' -f1)
 	push "$FINAL_ZIP" "Build took : $(($SECONDS / 60)) minute(s) and $(($SECONDS % 60)) second(s). | For <b>$MODEL ($DEVICE)</b> | <b>${KBUILD_COMPILER_STRING}</b> | <b>MD5 Checksum : </b><code>$MD5CHECK</code>"
+	fi
 }
 
 function compile() {
