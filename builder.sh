@@ -170,7 +170,6 @@ function build_check() {
 	if ! [ -a "$IMAGE" ];
 	   then
 	       push "${KERNEL_DIR}/error.log" "Build Throws Errors"
-	       exit 1
 	   else
 	       post_msg " Kernel Compilation Finished. Started Zipping "
 	fi
