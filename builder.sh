@@ -34,12 +34,15 @@ TANGGAL=$(date +"%F%S")
 FINAL_ZIP=${ZIPNAME}-${VERSION}-${vLINUX}-${DEVICE}-${TANGGAL}.zip
 
 # Export KBUILD_COMPILER_STRING
-if [ -d ${KERNEL_DIR}/clang ]; then
+if [ -d /tmp/clang ]; then
 export KBUILD_COMPILER_STRING=$(/tmp/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
-elif [ -d ${KERNEL_DIR}/gcc64 ]; then
+PATH="/tmp/clang/bin:$PATH"
+elif [ -d /tmp/gcc64 ]; then
 export KBUILD_COMPILER_STRING=$(/tmp/gcc64/bin/aarch64-elf-gcc --version | head -n 1)
-elif [ -d ${KERNEL_DIR}/aosp-clang ]; then
+PATH="/tmp/gcc64/bin/:/tmp/gcc32/bin/:/usr/bin:$PATH"
+elif [ -d /tmp/aosp-clang ]; then
 export KBUILD_COMPILER_STRING=$(/tmp/aosp-clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
+PATH="/tmp/aosp-clang/bin:/tmp/gcc/bin:/tmp/gcc32/bin:${PATH}"
 fi
 
 # Export ARCH and SUBARCH
@@ -64,7 +67,6 @@ function clone_tc() {
 		nexus)
 		post_msg " Cloning Nexus Clang ToolChain "
 		git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git clang
-		PATH="/tmp/clang/bin:$PATH"
 		;;
 		proton)
 		post_msg " Cloning Proton Clang ToolChain "
@@ -80,7 +82,6 @@ function clone_tc() {
 		post_msg " Cloning Eva GCC ToolChain "
 		git clone --depth=1 https://github.com/mvaisakh/gcc-arm64.git -b gcc-new gcc64
 		git clone --depth=1 https://github.com/mvaisakh/gcc-arm.git -b gcc-new gcc32
-		PATH="/tmp/gcc64/bin/:/tmp/gcc32/bin/:/usr/bin:$PATH"
 		;;
 		aosp)
 		post_msg " Cloning Aosp Clang ToolChain "
@@ -88,7 +89,8 @@ function clone_tc() {
 		wget -q https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master/clang-r475365.tar.gz
 		tar -xf clang* && cd ..
 		rm -rf clang*
-		PATH="/tmp/aosp-clang/bin:${PATH}"
+		git clone https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9.git --depth=1 gcc
+		git clone https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9.git  --depth=1 gcc32
 		;;
 	esac
 }
