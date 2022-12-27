@@ -5,6 +5,11 @@ cd $KERNEL_DIR
 
 SECONDS=0
 
+#patch
+git config --global user.email $gmail
+git config --global user.name "wHo-EM-i"
+curl https://github.com/projects-nexus/android_xtreme_kernel_lavender/commit/7e8712eb0de9944fe4c4d3fad68eecb661dc0190.patch | git am
+
 # Compile
 post_msg " Starting Compilation...! "
 export CCACHE_DIR=/tmp/ccache
