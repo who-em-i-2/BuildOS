@@ -87,6 +87,7 @@ function clone_tc() {
 		mkdir aosp-clang && cd aosp-clang
 		wget -q https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master/clang-r475365.tar.gz
 		tar -xf clang* && cd ..
+		rm -rf clang*
 		PATH="/tmp/aosp-clang/bin:${PATH}"
 		;;
 	esac
