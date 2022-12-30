@@ -23,6 +23,8 @@ git clone https://github.com/Prashant-1695/local_manifest.git --depth 1 -b shink
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
+cd /tmp/rom/device/qcom/common && sed -i 's|include device/qcom/sepolicy-legacy/SEPolicy.mk|-include device/qcom/sepolicy-legacy/SEPolicy.mk|' B*Qcom.mk
+rm -rf /tmp/rom/device/qcom/sepolicy-legacy
 
 # tree
 #git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b eas
