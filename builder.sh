@@ -128,13 +128,11 @@ function upl_zip() {
 }
 
 function compile() {
-	make O=out CC=clang ARCH=arm64 ${DEFCONFIG}
+	make O=out ARCH=arm64 ${DEFCONFIG}
 	case $COMPILER in
 	  nexus|proton|azure)
 	  make -kj10 O=out \
 	  ARCH=arm64 \
-#	  LLVM=1 \
-#	  LLVM_IAS=1 \
 	  CC="ccache clang" \
 	  CROSS_COMPILE=aarch64-linux-gnu- \
 	  CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
@@ -156,8 +154,6 @@ function compile() {
 	  aosp)
 	  make -kj10 O=out \
 	  ARCH=arm64 \
-#	  LLVM=1 \
-#	  LLVM_IAS=1 \
 	  CC="ccache clang" \
 	  CLANG_TRIPLE=aarch64-linux-gnu- \
 	  CROSS_COMPILE=aarch64-linux-android- \
