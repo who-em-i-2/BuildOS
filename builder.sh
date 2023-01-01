@@ -8,7 +8,7 @@ MODEL=Xiaomi
 DEVICE=Lavender
 
 # Kernel Name and Version
-ZIPNAME=NexusLite
+ZIPNAME=Nexus
 VERSION=X1
 CAF_TAG=LA.UM.11.2.1.r1-02600
 vLINUX=4.19
@@ -18,7 +18,7 @@ DEFCONFIG=lavender_defconfig
 
 
 # Specify compiler - nexus, proton, azure, evagcc, aosp
-COMPILER=aosp
+COMPILER=proton
 
 
 # Files
@@ -50,16 +50,16 @@ export ARCH=arm64
 export SUBARCH=arm64
 
 # Export Local Version
-export LOCALVERSION="-${VERSION}-${CAF_TAG}"
+#export LOCALVERSION="-${VERSION}-${CAF_TAG}"
 
 # KBUILD HOST and USER
-export KBUILD_BUILD_HOST=NubXD
-export KBUILD_BUILD_USER="ImSpiDy"
+export KBUILD_BUILD_HOST=NexGang
+export KBUILD_BUILD_USER="ImPrashant"
 export DISTRO=$(source /etc/os-release && echo "${NAME}")
 
 
 function clone_kt() {
-	git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel -b x1-test
+	git clone --depth=1 https://github.com/Prashant-1695/kernel_xiaomi_lavender-4.19 kernel -b caf
 }
 
 function clone_tc() {
