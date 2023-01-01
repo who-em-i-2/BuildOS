@@ -66,7 +66,7 @@ function clone_tc() {
 	case $COMPILER in
 		nexus)
 		post_msg " Cloning Nexus Clang ToolChain "
-		git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git clang
+		git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git -b nexus-14 clang
 		;;
 		proton)
 		post_msg " Cloning Proton Clang ToolChain "
