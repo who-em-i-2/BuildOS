@@ -71,12 +71,10 @@ function clone_tc() {
 		proton)
 		post_msg " Cloning Proton Clang ToolChain "
 		git clone --depth=1 https://github.com/kdrag0n/proton-clang.git clang
-		PATH="/tmp/clang/bin:$PATH"
 		;;
 		azure)
 		post_msg " Cloning Azure Clang ToolChain "
 		git clone --depth=1 https://gitlab.com/Panchajanya1999/azure-clang.git clang
-		PATH="/tmp/clang/bin:$PATH"
 		;;
 		eva)
 		post_msg " Cloning Eva GCC ToolChain "
@@ -201,7 +199,7 @@ time aria2c $1 -x16 -s50
 # upload our ccache
 function upload_ccache () {
 SECONDS=0
-gclone copy $1 whoemi:cirrus-user/${REAL_REPO_OWNER}/${DEVICE}/${ZIPNAME}/${vLINUX} -P
+gclone copy $1 whoemi:cirrus-user/${REAL_REPO_OWNER}/${vLINUX}/${DEVICE}/${ZIPNAME} -P
 }
 
 for i in $@
