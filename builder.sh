@@ -18,7 +18,7 @@ DEFCONFIG=lavender_defconfig
 
 
 # Specify compiler - nexus, proton, azure, evagcc, aosp
-COMPILER=proton
+COMPILER=nexus
 
 
 # Files
