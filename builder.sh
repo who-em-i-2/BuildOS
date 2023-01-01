@@ -133,7 +133,7 @@ function compile() {
 	  nexus|proton|azure)
 	  make -kj10 O=out \
 	  ARCH=arm64 \
-	  CC="ccache clang" \
+	  CC=clang \
 	  CROSS_COMPILE=aarch64-linux-gnu- \
 	  CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
 	  V=$VERBOSE 2>&1 | tee error.log
@@ -154,7 +154,7 @@ function compile() {
 	  aosp)
 	  make -kj10 O=out \
 	  ARCH=arm64 \
-	  CC="ccache clang" \
+	  CC=clang \
 	  CLANG_TRIPLE=aarch64-linux-gnu- \
 	  CROSS_COMPILE=aarch64-linux-android- \
 	  CROSS_COMPILE_ARM32=arm-linux-androideabi- \
