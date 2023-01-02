@@ -134,6 +134,8 @@ function compile() {
 	  make -kj10 O=out \
 	  ARCH=arm64 \
 	  CC=clang \
+	  LLVM=1 \
+	  LLVM_IAS=1 \
 	  CROSS_COMPILE=aarch64-linux-gnu- \
 	  CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
 	  V=$VERBOSE 2>&1 | tee error.log
@@ -155,6 +157,8 @@ function compile() {
 	  make -kj10 O=out \
 	  ARCH=arm64 \
 	  CC=clang \
+	  LLVM=1 \
+	  LLVM_IAS=1 \
 	  CLANG_TRIPLE=aarch64-linux-gnu- \
 	  CROSS_COMPILE=aarch64-linux-android- \
 	  CROSS_COMPILE_ARM32=arm-linux-androideabi- \
