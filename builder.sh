@@ -59,7 +59,7 @@ export DISTRO=$(source /etc/os-release && echo "${NAME}")
 
 
 function clone_kt() {
-	git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel -b rebase
+	git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel -b staging
 }
 
 function clone_tc() {
