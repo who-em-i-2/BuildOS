@@ -17,7 +17,7 @@ task:
     name: u_cant_see_me
     timeout_in: 120m
     container:
-      image: nexgang/ubuntu:latest
+      image: z4nyx/docker:latest
       cpu: 8
       memory: 32G
     down_background_script:
