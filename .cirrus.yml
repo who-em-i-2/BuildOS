@@ -4,7 +4,7 @@ env: # Environment variables to pass to all tasks
 
 # store our secrets here
     my_og_token: "ENCRYPTED[34eb4560fb15530b00628309ec778bd60cb8ca6055d760656c703ed28ebd12aec04127e33e6aad60ecaefc700471faa4]" # main id
-    github_token: "ENCRYPTED[72f2c8676c2376db3bdbdee2ddbb655b25b5d4cc92018dd03d7701cf2dbb1adb33f034014507aa65387a4f7a2759a686]" # alt id
+    github_token: "ENCRYPTED[9619be86dc4243aee45774a557b6cc50b6ee92849bb05af7fd58d869182ce669f1a3359ac67b4543804f81f5fb8609b9]" # alt id
     bot_api: "ENCRYPTED[101eaa5c88d49b4dbca90e82c43348dd68188744b4ec08437bc1e04c04b27715202e40892d8423bb5e900fd69250bf65]"
     chat_id: "-1001659048493"
     git_cookies: 0
