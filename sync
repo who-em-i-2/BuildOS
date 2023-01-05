@@ -30,10 +30,13 @@ git clone -b arrow-13.0-caf-msm8998 https://github.com/ArrowOS/android_hardware_
 git clone -b arrow-13.0-caf-msm8998 https://github.com/ArrowOS/android_hardware_qcom_media hardware/qcom-caf/msm8998/media
 git clone -b arrow-13.0-caf-msm8998 https://github.com/ArrowOS/android_hardware_qcom_audio hardware/qcom-caf/msm8998/audio
 
+#clang
+git clone --depth=1 -b nexus-14 https://gitlab.com/Project-Nexus/nexus-clang.git prebuilts/clang/host/linux-x86/clang-nexus
+
 # tree
 git clone --depth=1 https://Prashant-1695:$my_og_token@github.com/Prashant-1695/device_xiaomi_lavender device/xiaomi/lavender -b test
 git clone --depth=1 https://Prashant-1695:$my_og_token@github.com/Prashant-1695/android_vendor_xiaomi_lavender vendor/xiaomi/lavender -b 13-4.4
-git clone --depth=1 https://github.com/projects-nexus/nexus_kernel_xiaomi_lavender kernel/xiaomi/lavender -b qti
+git clone --depth=1 https://github.com/projects-nexus/nexus_kernel_xiaomi_lavender kernel/xiaomi/lavender -b sax
 #git clone --depth=1 https://github.com/LineageOS/android_hardware_lineage_livedisplay hardware/lineage/livedisplay -b lineage-17.1
 
 # patch
