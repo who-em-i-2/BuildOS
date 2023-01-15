@@ -20,7 +20,7 @@ repo init --depth=1 --no-repo-verify -u https://github.com/crdroidandroid/androi
 #git clone https://github.com/Prashant-1695/local_manifest.git --depth 1 -b shinka .repo/local_manifests
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
-repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
 
 #extras 
 rm -rf hardware/qcom-caf/msm8998/media
