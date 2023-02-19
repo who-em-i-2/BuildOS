@@ -16,17 +16,25 @@ bash ~/git_cookies.sh
 fi
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/ImSpiDy/android_manifest -b eas -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify -u https://github.com/Havoc-OS/android_manifest -b ten -g default,-mips,-darwin,-notdefault
 #git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b arrow-4.19 .repo/local_manifests
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
 
 # tree
-git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b eas
+git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 10-EAS
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/vendor_xiaomi_lavender vendor/xiaomi/lavender -b eas
 git clone --depth=1 https://github.com/projects-nexus/xtreme_kernel_lavender-4.4 kernel/xiaomi/lavender -b oldcam
 git clone --depth=1 https://github.com/LineageOS/android_hardware_lineage_livedisplay hardware/lineage/livedisplay -b lineage-17.1
+git clone --depth=1 https://github.com/Nub-XD/android_packages_apps_Dirac packages/apps/Dirac -b 10
+git clone --depth=1 https://github.com/Nub-XD/platform_vendor_lawnchair vendor/lawnchair -b 10
+
+
+rm -rf /tmp/rom/frameworks/base /tmp/rom/vendor/qcom/opensource/power /tmp/rom/build/make
+git clone --depth=1 https://github.com/Nub-XD/android_frameworks_base frameworks/base -b ten
+git clone --depth=1 https://github.com/Nub-XD/android_vendor_qcom_opensource_power vendor/qcom/opensource/power -b ten
+git clone --depth=1 https://github.com/Nub-XD/android_build build/make -b ten
 
 # patch
 #cd /tmp/rom/system/libhidl && curl https://github.com/ArrowOS/android_system_libhidl/commit/fbdf10a33f546d202ae12b4b864177fea9faa998.patch | git am
