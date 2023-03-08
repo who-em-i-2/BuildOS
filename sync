@@ -23,12 +23,12 @@ repo init --depth=1 --no-repo-verify -u https://github.com/crdroidandroid/androi
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
 
 #clang
-git clone --depth=1 -b nexus-14 https://gitlab.com/Project-Nexus/nexus-clang.git prebuilts/clang/host/linux-x86/clang-nexus
+#git clone --depth=1 -b nexus-14 https://gitlab.com/Project-Nexus/nexus-clang.git prebuilts/clang/host/linux-x86/clang-nexus
 
 # tree
 git clone --depth=1 https://Prashant-1695:$my_og_token@github.com/Prashant-1695/device_xiaomi_lavender device/xiaomi/lavender -b lineage
 git clone --depth=1 https://Prashant-1695:$my_og_token@github.com/Prashant-1695/android_vendor_xiaomi_lavender vendor/xiaomi/lavender -b 13-4.4
-git clone --depth=1 https://github.com/projects-nexus/nexus_kernel_xiaomi_lavender kernel/xiaomi/lavender -b los
+git clone --depth=1 https://github.com/projects-nexus/nexus_kernel_xiaomi_lavender kernel/xiaomi/lavender -b qti
 
 # patch
 #cd /tmp/rom/system/libhidl && curl https://github.com/ArrowOS/android_system_libhidl/commit/fbdf10a33f546d202ae12b4b864177fea9faa998.patch | git am
