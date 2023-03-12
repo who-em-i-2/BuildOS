@@ -12,7 +12,8 @@ export SELINUX_IGNORE_NEVERALLOWS=true
 export CHERISH_VANILLA=true
 
 exp_gapps() {
-export TARGET_USES_MINI_GAPPS=true
+export CHERISH_VANILLA=false
+export WITH_GMS=true
 }
 
 compile_plox () {
