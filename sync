@@ -16,7 +16,7 @@ bash ~/git_cookies.sh
 fi
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/Havoc-OS/android_manifest -b ten -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify -u https://github.com/crdroidandroid/android.git -b 10.0 -g default,-mips,-darwin,-notdefault
 #git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b arrow-4.19 .repo/local_manifests
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
@@ -25,22 +25,17 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 # tree
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 10-EAS
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/vendor_xiaomi_lavender vendor/xiaomi/lavender -b eas
-git clone --depth=1 https://github.com/projects-nexus/xtreme_kernel_lavender-4.4 kernel/xiaomi/lavender -b oldcam
+git clone --depth=1 https://github.com/projects-nexus/kernel_xiaomi_lavender-4.4 kernel/xiaomi/lavender -b oldcam
 git clone --depth=1 https://github.com/LineageOS/android_hardware_lineage_livedisplay hardware/lineage/livedisplay -b lineage-17.1
 git clone --depth=1 https://github.com/Nub-XD/android_packages_apps_Dirac packages/apps/Dirac -b 10
-git clone --depth=1 https://github.com/Nub-XD/platform_vendor_lawnchair vendor/lawnchair -b 10
+#git clone --depth=1 https://github.com/Nub-XD/platform_vendor_lawnchair vendor/lawnchair -b 10
 
-
-rm -rf /tmp/rom/frameworks/base /tmp/rom/vendor/qcom/opensource/power /tmp/rom/build/make
-git clone --depth=1 https://github.com/Nub-XD/android_frameworks_base frameworks/base -b ten
-git clone --depth=1 https://github.com/Nub-XD/android_vendor_qcom_opensource_power vendor/qcom/opensource/power -b ten
-git clone --depth=1 https://github.com/Nub-XD/android_build build/make -b ten
+# re clone
+rm -rf /tmp/rom/frameworks/base
+git clone --depth=1 https://github.com/Nub-XD/android_frameworks_base frameworks/base -b 10.0
 
 # patch
-#cd /tmp/rom/system/libhidl && curl https://github.com/ArrowOS/android_system_libhidl/commit/fbdf10a33f546d202ae12b4b864177fea9faa998.patch | git am
-#cd /tmp/rom/device/qcom/common && curl https://github.com/wHo-EM-i/android_device_qcom_common/commit/b3a612e836ddf3e9ac766612ee4bd9194b681c95.patch | git am
-#cd /tmp/rom/bionic && curl https://github.com/wHo-EM-i/bionic/commit/61ea0bc221c8ae7992b44c58302e23ab3e748742.patch | git am
-#cd /tmp/rom/hardware/libhardware && curl https://github.com/AOSPA/android_hardware_libhardware/commit/bec92996fbc143620da9a4a3c22a744958535ad5.patch | git am
+cd /tmp/rom/build/make && curl https://github.com/Nub-XD/android_build/commit/7a7efc9305f5167d696a159cb2c7de5fcb3d8379.patch | git am
 
 . /tmp/ci/function
 tg "$rom_name source sync completed!
