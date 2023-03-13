@@ -15,7 +15,7 @@ env: # Environment variables to pass to all tasks
     gmail: ehteshammalik18998@gmail.com
 
 task:
-    name: GODZ
+    name: Sonix
     timeout_in: 120m
     container:
       image: nexgang/ubuntu:latest
