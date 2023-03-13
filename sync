@@ -29,6 +29,7 @@ git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.4 kernel
 git clone --depth=1 https://github.com/LineageOS/android_hardware_lineage_livedisplay hardware/lineage/livedisplay -b lineage-17.1
 git clone --depth=1 https://github.com/Nub-XD/android_packages_apps_Dirac packages/apps/Dirac -b 10
 #git clone --depth=1 https://github.com/Nub-XD/platform_vendor_lawnchair vendor/lawnchair -b 10
+git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git /tmp/rom/prebuilts/clang/host/linux-x86/nexus-clang -b nexus-14
 
 # re clone
 rm -rf /tmp/rom/frameworks/base
@@ -36,6 +37,9 @@ git clone --depth=1 https://github.com/Nub-XD/android_frameworks_base frameworks
 
 # patch
 cd /tmp/rom/build/make && curl https://github.com/Nub-XD/android_build/commit/7a7efc9305f5167d696a159cb2c7de5fcb3d8379.patch | git am
+cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor_nusantara/commit/cc32aea980f42baca14e0b9bd982e6e5bcc5fbe5.patch | git am
+cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor_nusantara/commit/f7bf29aedd11283bbe216a0722fc93ee013acdb7.patch | git am
+cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor_nusantara/commit/0e7f442548e0b8f4cda80940d3d9d23ac769707d.patch | git am
 
 . /tmp/ci/function
 tg "$rom_name source sync completed!
