@@ -3,18 +3,19 @@ env: # Environment variables to pass to all tasks
     CIRRUS_WORKING_DIR: "/tmp/ci" # Where to clone the aosp-builder repo
 
 # store our secrets here
-    my_og_token: "ENCRYPTED[3d425fd3bbc6c1f123ced2249b75f578bd2c5bd8a139f266f6b66d2fb11877769385038783574643654b2334fc9ae175]" # main id
-    github_token: "ENCRYPTED[b3e1477d0e0815b5f6787800a1ac26704974fab1206cfeb9ca8806274345ee36dafadc796931e10f649df6e47f814319]" # alt id
-    bot_api: "1921250592:AAFnoXSBt2iw2Vve1yUVpvPqvFicxjOtIkY"
-    chat_id: "-1001749428852"
+    my_og_token: "ENCRYPTED[!4ed450bcbc618a2a68265fdae6590108d7f533cd761d8fb73170e4f477c8ed2efea7f71ba7bfc0ea900312e6a4901952!]" # main id
+    github_token: "ENCRYPTED[!2192a667547bf4f72b81dfcf6462f4feede24acb861bbe1d8f75e41259b7130e1ff24462786031d42c4b2c27271e9dd0!]" # alt id
+    bot_api: "ENCRYPTED[!3d10c54b189dd7714c3542a647db26b408bb9ec4b4358af9b91b2f95386c4245079e29cd1ca631767f8d12609b1a4dff!]"
+    chat_id: "ENCRYPTED[!89372a374bdff7c2762f1be427746e1f1de808ecb6655ae21da807c4a59a87854832e616e2d527478e369e88fc9ad3a4!]"
     git_cookies: 0
     REAL_REPO_OWNER: "ENCRYPTED[!1f20df1282c3d9f1c6507b4889cbdbd57d3dfb6551daf597bedc9e89b149f16a310b410aee9aad06ec23e960ef8c68fd!]" # main id
+    REAL_REPO_OWNER: "ENCRYPTED[!22316778a70c4b6a99936158128d7403a6aec600c0c6da27a7b1e82e18318e027df11c1096d4c77de98d81ec61bb0112!]" # main id
 
 # store information about git here
     gmail: ehteshammalik18998@gmail.com
 
 task:
-    name: u_cant_see_me
+    name: dont_see_me
     timeout_in: 120m
     container:
       image: nexgang/ubuntu:latest
