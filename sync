@@ -32,10 +32,11 @@ git clone --depth=1 https://github.com/Nub-XD/android_packages_apps_Dirac packag
 git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git /tmp/rom/prebuilts/clang/host/linux-x86/nexus-clang -b nexus-14
 
 # re clone
-rm -rf /tmp/rom/frameworks/base /tmp/rom/vendor/lineage /tmp/rom/bionic
+rm -rf /tmp/rom/frameworks/base /tmp/rom/vendor/lineage 
+#/tmp/rom/bionic
 git clone --depth=1 https://github.com/Nub-XD/android_frameworks_base /tmp/rom/frameworks/base -b 10.0
 git clone --depth=1 https://github.com/Nub-XD/android_vendor_lineage /tmp/rom/vendor/lineage -b 10.0
-git clone --depth=1 https://github.com/Nub-XD/android_bionic /tmp/rom/bionic -b 10
+#git clone --depth=1 https://github.com/Nub-XD/android_bionic /tmp/rom/bionic -b 10
 
 # patch
 cd /tmp/rom/build/make && curl https://github.com/Nub-XD/android_build/commit/7a7efc9305f5167d696a159cb2c7de5fcb3d8379.patch | git am 
