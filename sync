@@ -25,7 +25,7 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 # tree
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 10-EAS
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/vendor_xiaomi_lavender vendor/xiaomi/lavender -b eas
-git clone --depth=1 https://github.com/projects-nexus/kernel_xiaomi_lavender-4.4 kernel/xiaomi/lavender -b oldcam
+git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.4 kernel/xiaomi/lavender -b oldcam
 git clone --depth=1 https://github.com/LineageOS/android_hardware_lineage_livedisplay hardware/lineage/livedisplay -b lineage-17.1
 git clone --depth=1 https://github.com/Nub-XD/android_packages_apps_Dirac packages/apps/Dirac -b 10
 #git clone --depth=1 https://github.com/Nub-XD/platform_vendor_lawnchair vendor/lawnchair -b 10
