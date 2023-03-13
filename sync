@@ -40,6 +40,7 @@ git clone --depth=1 https://github.com/Nub-XD/android_vendor_lineage /tmp/rom/ve
 
 # patch
 cd /tmp/rom/build/make && curl https://github.com/Nub-XD/android_build/commit/7a7efc9305f5167d696a159cb2c7de5fcb3d8379.patch | git am 
+cd /tmp/rom/packages/apps/ManagedProvisioning && curl https://github.com/Nub-XD/android_packages_apps_ManagedProvisioning/commit/b0aaec6871bea7a512984f1535ff4146aadb8049.patch | git am
 
 . /tmp/ci/function
 tg "$rom_name source sync completed!
