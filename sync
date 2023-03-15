@@ -16,33 +16,32 @@ bash ~/git_cookies.sh
 fi
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/crdroidandroid/android.git -b 10.0 -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify -u https://github.com/ReloadedOS/android_manifest.git -b q -g default,-mips,-darwin,-notdefault
 #git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b arrow-4.19 .repo/local_manifests
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
 
 # tree
-git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 10-EAS
-git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/vendor_xiaomi_lavender vendor/xiaomi/lavender -b eas
-git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.4 kernel/xiaomi/lavender -b oldcam
+git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b Q-CLO
+git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/vendor_xiaomi_lavender vendor/xiaomi/lavender -b hmp
+git clone --depth=1 https://github.com/stormbreaker-project/kernel_xiaomi_lavender kernel/xiaomi/lavender -b oldcam-hmp
 
 # extra stuff 
-#git clone --depth=1 https://github.com/LineageOS/android_hardware_lineage_livedisplay hardware/lineage/livedisplay -b lineage-17.1
+git clone --depth=1 https://github.com/LineageOS/android_hardware_lineage_livedisplay hardware/lineage/livedisplay -b lineage-17.1
 git clone --depth=1 https://github.com/Nub-XD/android_packages_apps_Dirac packages/apps/Dirac -b 10
 #git clone --depth=1 https://github.com/Nub-XD/platform_vendor_lawnchair vendor/lawnchair -b 10
-git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git /tmp/rom/prebuilts/clang/host/linux-x86/nexus-clang -b nexus-14
+#git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git /tmp/rom/prebuilts/clang/host/linux-x86/nexus-clang -b nexus-14
 
 # re clone
-rm -rf /tmp/rom/frameworks/base /tmp/rom/vendor/lineage 
-#/tmp/rom/bionic
-git clone --depth=1 https://github.com/Nub-XD/android_frameworks_base /tmp/rom/frameworks/base -b 10.0
-git clone --depth=1 https://github.com/Nub-XD/android_vendor_lineage /tmp/rom/vendor/lineage -b 10.0
+#rm -rf /tmp/rom/frameworks/base /tmp/rom/vendor/lineage /tmp/rom/bionic
+#git clone --depth=1 https://github.com/Nub-XD/android_frameworks_base /tmp/rom/frameworks/base -b 10.0
+#git clone --depth=1 https://github.com/Nub-XD/android_vendor_lineage /tmp/rom/vendor/lineage -b 10.0
 #git clone --depth=1 https://github.com/Nub-XD/android_bionic /tmp/rom/bionic -b 10
 
 # patch
-cd /tmp/rom/build/make && curl https://github.com/Nub-XD/android_build/commit/7a7efc9305f5167d696a159cb2c7de5fcb3d8379.patch | git am 
-cd /tmp/rom/packages/apps/ManagedProvisioning && curl https://github.com/Nub-XD/android_packages_apps_ManagedProvisioning/commit/b0aaec6871bea7a512984f1535ff4146aadb8049.patch | git am
+#cd /tmp/rom/build/make && curl https://github.com/Nub-XD/android_build/commit/7a7efc9305f5167d696a159cb2c7de5fcb3d8379.patch | git am 
+#cd /tmp/rom/packages/apps/ManagedProvisioning && curl https://github.com/Nub-XD/android_packages_apps_ManagedProvisioning/commit/b0aaec6871bea7a512984f1535ff4146aadb8049.patch | git am
 
 . /tmp/ci/function
 tg "$rom_name source sync completed!
