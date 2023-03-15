@@ -14,7 +14,7 @@ env: # Environment variables to pass to all tasks
     gmail: ehteshammalik18998@gmail.com
 
 task:
-    name: reloadedd
+    name: rdcmf
     timeout_in: 120m
     container:
       image: nexgang/ubuntu:latest
