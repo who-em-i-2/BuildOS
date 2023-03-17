@@ -1,6 +1,6 @@
 # Normal build steps
 . build/envsetup.sh
-lunch reloaded_lavender-userdebug
+lunch rr_lavender-userdebug
 
 # export variable here
 export TZ=Asia/Kolkata
@@ -8,5 +8,5 @@ export TZ=Asia/Kolkata
 #export ARROW_GAPPS=true
 
 compile_plox () {
-make reloaded -j17
+mka bacon -j17
 }
