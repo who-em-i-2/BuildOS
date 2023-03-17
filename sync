@@ -40,6 +40,12 @@ git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git /tmp/rom/pr
 #git clone --depth=1 https://github.com/Nub-XD/android_bionic /tmp/rom/bionic -b 10
 rm -rf /tmp/rom/vendor/rr
 git clone --depth=1 https://github.com/Nub-XD/android_vendor_lineage /tmp/rom/vendor/rr -b Q
+rm -rf /tmp/rom/hardware/qcom-caf/msm8998/display
+rm -rf /tmp/rom/hardware/qcom-caf/msm8998/audio
+rm -rf /tmp/rom/hardware/qcom-caf/msm8998/media
+git clone --depth=1 https://github.com/NusantaraProject-ROM/android_hardware_qcom_display /tmp/rom/hardware/qcom-caf/msm8998/display -b 10-msm8998
+git clone --depth=1 https://github.com/NusantaraProject-ROM/android_hardware_qcom_audio /tmp/rom/hardware/qcom-caf/msm8998/audio -b 10-msm8998
+git clone --depth=1 https://github.com/NusantaraProject-ROM/android_hardware_qcom_media /tmp/rom/hardware/qcom-caf/msm8998/media -b 10-msm8998
 
 # patch
 #cd /tmp/rom/build/make && curl https://github.com/Nub-XD/android_build/commit/7a7efc9305f5167d696a159cb2c7de5fcb3d8379.patch | git am 
