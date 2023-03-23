@@ -34,7 +34,7 @@ cd /tmp/rom/bionic && curl https://github.com/wHo-EM-i/bionic/commit/61ea0bc221c
 cp -vf /tmp/rom/device/xiaomi/lavender/configs/perf/*.xml /tmp/rom/device/qcom/common/vendor/perf/configs/sdm660/perf
 
 #test
-echo "KERNEL_CUSTOM_LLVM := true" >> device/xiaomi/lavender/B*.mk
+echo "KERNEL_CUSTOM_LLVM := true" >> /tmp/rom/device/xiaomi/lavender/B*.mk
 
 . /tmp/ci/function
 tg "$rom_name source sync completed!
