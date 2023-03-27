@@ -37,7 +37,7 @@ git clone --depth=1 https://github.com/Nub-XD/android_hardware_qcom_audio hardwa
 git clone --depth=1 https://github.com/Nub-XD/android_hardware_qcom_display hardware/qcom/msm8998/display -b 12-sapphire
 git clone --depth=1 https://github.com/Nub-XD/android_hardware_qcom_media hardware/qcom/msm8998/media -b 12-sapphire
 git clone --depth=1 https://github.com/AOSPA/android_hardware_qcom_wlan hardware/qcom/wlan -b topaz
-git clone --depth=1 https://github.com/AOSPA/android_external_wpa_supplicant_8 external/wpa_supplicant_8 -b topaz
+git clone --depth=1 https://github.com/aospa-mido/android_external_wpa_supplicant_8 external/wpa_supplicant_8 -b topaz
 
 #test
 #echo "KERNEL_CUSTOM_LLVM := true" >> device/xiaomi/lavender/B*.mk
