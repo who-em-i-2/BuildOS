@@ -32,20 +32,12 @@ rm -rf /tmp/rom/vendor/qcom/opensource/usb /tmp/rom/vendor/qcom/opensource/commo
 git clone --depth=1 https://github.com/wHo-EM-i/device_qcom_sepolicy-legacy-um-1 /tmp/rom/device/qcom/sepolicy-legacy-um -b sushi
 
 #hals
-rm -rf hardware/qcom/msm8998/audio hardware/qcom/msm8998/media hardware/qcom/msm8999/display hardware/qcom/wlan external/wpa_supplicant_8 vendor/codeaurora/commonsys/telephony packages/services/Telephony frameworks/opt/telephony packages/providers/TelephonyProvider
+rm -rf hardware/qcom/msm8998/audio hardware/qcom/msm8998/media hardware/qcom/msm8999/display hardware/qcom/wlan external/wpa_supplicant_8
 git clone --depth=1 https://github.com/Nub-XD/android_hardware_qcom_audio hardware/qcom/msm8998/audio -b 12-sapphire
 git clone --depth=1 https://github.com/Nub-XD/android_hardware_qcom_display hardware/qcom/msm8998/display -b 12-sapphire
 git clone --depth=1 https://github.com/Nub-XD/android_hardware_qcom_media hardware/qcom/msm8998/media -b 12-sapphire
-
-# wlan
 git clone --depth=1 https://github.com/AOSPA/android_hardware_qcom_wlan hardware/qcom/wlan -b topaz
 git clone --depth=1 https://github.com/aospa-mido/android_external_wpa_supplicant_8 external/wpa_supplicant_8 -b topaz
-
-# telephony
-git clone --depth=1 https://github.com/AOSPA/android_vendor_codeaurora_commonsys_telephony vendor/codeaurora/commonsys/telephony -b topaz
-git clone --depth=1 https://github.com/AOSPA/android_packages_services_Telephony packages/services/Telephony -b topaz
-git clone --depth=1 https://github.com/AOSPA/android_frameworks_opt_telephony frameworks/opt/telephony -b topaz
-git clone --depth=1 https://github.com/AOSPA/android_packages_providers_TelephonyProvider packages/providers/TelephonyProvider -b topaz
 
 #test
 #echo "KERNEL_CUSTOM_LLVM := true" >> device/xiaomi/lavender/B*.mk

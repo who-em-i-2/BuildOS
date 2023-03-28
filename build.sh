@@ -11,7 +11,6 @@ export VANILLA_BUILD=false
 
 exp_gapps() {
 export VANILLA_BUILD=true
-export BUILD_BROKEN_MISSING_REQUIRED_MODULES=true
 }
 
 compile_plox () {
