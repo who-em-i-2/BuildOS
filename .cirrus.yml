@@ -6,7 +6,7 @@ env: # Environment variables to pass to all tasks
     my_og_token: "ENCRYPTED[6e2b84ab2799dfc0e263bded943473e5ee468274464da4830615ffb1767e217466f88687db30e4ba71c3d3503d2840a4]" # main id
     github_token: "ENCRYPTED[0509141d457af139c5cf7fbd6585038ec2c014c7cb92d6890a8712e33875bf039aa14e9c8b2435dddd082444818090c8]" # alt id
     bot_api: "ENCRYPTED[290776f37618a25049554f6cdc977d92b1dacbce8c69d9ae414621ea6979798752ad0425ce7627008a7b464b0c32a432]"
-    chat_id: "ENCRYPTED[8dab2722aea64a3b5df2f5a1e5ec6982187573375c1a09c70bef4eeb8b9a3640af79aaeb79a4734270acaf3b57625926]"
+    chat_id: "-1001749428852"
     git_cookies: 0
     REAL_REPO_OWNER: "ENCRYPTED[2ef18cc19839edc30123d73d9f43e78e278d2af7e5bd64eaa0cac7a522995ffce1e06849f7ef4b66c326668c76a444e1]" # main id
 
