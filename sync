@@ -38,7 +38,7 @@ git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hard
 
 #test
 #echo "KERNEL_CUSTOM_LLVM := true" >> device/xiaomi/lavender/B*.mk
-echo "QCOM_HARDWARE_VARIANT := sdm660" >> vendor/bliss/config/B*Qcom.mk
+sed -i 's|QCOM_HARDWARE_VARIANT := msm8998|QCOM_HARDWARE_VARIANT := sdm660|' vendor/bliss/config/B*Qcom.mk
 
 # powerhint
 #rm -rf /tmp/rom/vendor/qcom/opensource/power
