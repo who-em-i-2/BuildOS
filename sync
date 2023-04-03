@@ -32,12 +32,13 @@ rm -rf /tmp/rom/vendor/qcom/opensource/usb /tmp/rom/vendor/qcom/opensource/commo
 git clone --depth=1 https://github.com/wHo-EM-i/device_qcom_sepolicy-legacy-um-1 /tmp/rom/device/qcom/sepolicy-legacy-um -b sushi
 
 #hals
-rm -rf hardware/qcom/msm8998/audio hardware/qcom/msm8998/media hardware/qcom/msm8999/display hardware/qcom/wlan external/wpa_supplicant_8
+rm -rf hardware/qcom/msm8998/audio hardware/qcom/msm8998/media hardware/qcom/msm8999/display hardware/qcom/wlan external/wpa_supplicant_8 vendor/qcom/opensource/data-ipa-cfg-mgr
 git clone --depth=1 https://github.com/Nub-XD/android_hardware_qcom_audio hardware/qcom/msm8998/audio -b 12-sapphire
 git clone --depth=1 https://github.com/Nub-XD/android_hardware_qcom_display hardware/qcom/msm8998/display -b 12-sapphire
 git clone --depth=1 https://github.com/Nub-XD/android_hardware_qcom_media hardware/qcom/msm8998/media -b 12-sapphire
 git clone --depth=1 https://github.com/AOSPA/android_hardware_qcom_wlan hardware/qcom/wlan -b topaz
 git clone --depth=1 https://github.com/aospa-mido/android_external_wpa_supplicant_8 external/wpa_supplicant_8 -b topaz
+git clone --depth=1 https://github.com/AOSPA/android_vendor_qcom_opensource_data-ipa-cfg-mgr vendor/qcom/opensource/data-ipa-cfg-mgr -b topaz
 
 #test
 #echo "KERNEL_CUSTOM_LLVM := true" >> device/xiaomi/lavender/B*.mk
