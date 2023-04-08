@@ -37,12 +37,19 @@ git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git /tmp/rom/pr
 rm -rf /tmp/rom/frameworks/base /tmp/rom/vendor/lineage 
 #/tmp/rom/bionic
 git clone --depth=1 https://github.com/Nub-XD/android_frameworks_base /tmp/rom/frameworks/base -b 10.0
-git clone --depth=1 https://github.com/Nub-XD/android_vendor_lineage /tmp/rom/vendor/lineage -b 10.0
+git clone --depth=1 https://github.com/Nub-XD/android_vendor_nusantara /tmp/rom/vendor/lineage -b 10.0
 #git clone --depth=1 https://github.com/Nub-XD/android_bionic /tmp/rom/bionic -b 10
 
+# hals
+rm -rf hardware/qcom-caf/msm8998/audio hardware/qcom-caf/msm8998/display hardware/qcom-caf/msm8998/media
+git clone --depth=1 https://github.com/NusantaraProject-ROM/android_hardware_qcom_audio hardware/qcom-caf/msm8998/audio -b 10-msm8998
+git clone --depth=1 https://github.com/NusantaraProject-ROM/android_hardware_qcom_display hardware/qcom-caf/msm8998/display -b 10-msm8998
+git clone --depth=1 https://github.com/NusantaraProject-ROM/android_hardware_qcom_media hardware/qcom-caf/msm8998/media -b 10-msm8998
+
 # patch
-cd /tmp/rom/build/make && curl https://github.com/Nub-XD/android_build/commit/7a7efc9305f5167d696a159cb2c7de5fcb3d8379.patch | git am 
+cd /tmp/rom/build/make && curl https://github.com/Nub-XD/android_build/commit/7a7efc9305f5167d696a159cb2c7de5fcb3d8379.patch | git am
 cd /tmp/rom/packages/apps/ManagedProvisioning && curl https://github.com/Nub-XD/android_packages_apps_ManagedProvisioning/commit/b0aaec6871bea7a512984f1535ff4146aadb8049.patch | git am
+
 
 . /tmp/ci/function
 tg "$rom_name source sync completed!
