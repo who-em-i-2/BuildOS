@@ -34,11 +34,10 @@ git clone --depth=1 https://github.com/Nub-XD/platform_vendor_lawnchair vendor/l
 git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git /tmp/rom/prebuilts/clang/host/linux-x86/nexus-clang -b nexus-14
 
 # re clone
-rm -rf /tmp/rom/frameworks/base /tmp/rom/vendor/lineage 
-#/tmp/rom/bionic
+rm -rf /tmp/rom/frameworks/base /tmp/rom/vendor/lineage /tmp/rom/bionic
 git clone --depth=1 https://github.com/Nub-XD/android_frameworks_base /tmp/rom/frameworks/base -b 10.0
 git clone --depth=1 https://github.com/Nub-XD/android_vendor_nusantara /tmp/rom/vendor/lineage -b 10.0
-#git clone --depth=1 https://github.com/Nub-XD/android_bionic /tmp/rom/bionic -b 10
+git clone --depth=1 https://github.com/Nub-XD/android_bionic /tmp/rom/bionic -b 10.0
 
 # hals
 rm -rf hardware/qcom-caf/msm8998/audio hardware/qcom-caf/msm8998/display hardware/qcom-caf/msm8998/media
