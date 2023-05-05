@@ -1,11 +1,20 @@
 # Normal build steps
 . build/envsetup.sh
-lunch nad_lavender-userdebug
+. /vendor/rr/build/envsetup.sh
+lunch rr_lavender-userdebug
 
 # export variable here
 export TZ=Asia/Kolkata
 export SELINUX_IGNORE_NEVERALLOWS=true
 
+build_gapps=1
+export GAPPS=""
+
+exp_gapps() {
+export GAPPS=true
+export GAPPS_ARM32=false
+}
+
 compile_plox () {
-make nad -j17
+mka bacon -j17
 }
