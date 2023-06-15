@@ -9,9 +9,10 @@ env: # Environment variables to pass to all tasks
     chat_id: "ENCRYPTED[!a74ba1c6f6888c761edd16b42107a2d257f65b93ba4e468fb841a9bc8e4f47915e8de32b3670d8718204cd3dd9c7fcce!]"
     git_cookies: 0
     REAL_REPO_OWNER: "ENCRYPTED[!2d216e11d390b24637945eead7a7daa9d3ae3cb0907ae24c3763a05f725187ac5836f88fb3e6e71a180eea6f440ac023!]" # main id
+    c_repo: "https://github.com/Nub-XD/CI-Hax"
 
 # store information about git here
-    gmail: ehteshammalik18998@gmail.com
+    gmail: SpiDy2713@gmail.com
 
 task:
     name: nad
@@ -23,7 +24,7 @@ task:
       stateful: true
       greedy: true
     down_background_script:
-      - git clone -b main https://$REAL_REPO_OWNER:$my_og_token@github.com/projects-nexus/ci-script /tmp/cs
+      - git clone -b boot https://$REAL_REPO_OWNER:$my_og_token@github.com/projects-nexus/ci-script /tmp/cs
       - mv /tmp/cs/* /tmp/ci
       - bash down*
     symc_script:
