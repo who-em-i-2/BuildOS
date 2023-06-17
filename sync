@@ -32,7 +32,7 @@ git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git /tmp/rom/pr
 
 # re-clone
 rm -rf /tmp/rom/vendor/qcom/opensource/power
-git clone --depth=1 https://github.com/AOSPA/android_vendor_qcom-opensource_power vendor/qcom/opensource/power -b quartz
+git clone --depth=1 https://github.com/Nub-XD/android_vendor_qcom-opensource_power vendor/qcom/opensource/power -b quartz
 
 #bash /tmp/rom/vendor/nusantara/scripts/merge-aosp.sh security-10.0.0_r75
 
