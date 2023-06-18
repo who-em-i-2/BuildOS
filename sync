@@ -16,7 +16,7 @@ bash ~/git_cookies.sh
 fi
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/crdroidandroid/android -b 11.0 --git-lfs
+repo init --depth=1 --no-repo-verify -u https://github.com/ArrowOS-Revived/android_manifest.git -b arrow-11.0 -g default,-mips,-darwin,-notdefault
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
@@ -24,21 +24,21 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 # tree
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b R
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/vendor_xiaomi_lavender vendor/xiaomi/lavender -b R
-git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/kernel_xiaomi_lavender kernel/xiaomi/lavender -b X6
+git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/kernel_xiaomi_lavender kernel/xiaomi/lavender -b X6-Qti
 
 # extra stuff
 #git clone --depth=1 https://github.com/LineageOS/android_hardware_lineage_livedisplay hardware/lineage/livedisplay -b lineage-17.1
 git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git /tmp/rom/prebuilts/clang/host/linux-x86/nexus-clang -b nexus-14
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/XiaomiParts vendor/XiaomiParts
-git clone --depth=1 https://github.com/Nub-XD/platform_vendor_lawnchair vendor/lawnchair -b 11
+#git clone --depth=1 https://github.com/Nub-XD/platform_vendor_lawnchair vendor/lawnchair -b 11
 
 # Gapps
-git clone --depth=1 https://gitlab.com/xyzuan/xdroid_vendor_google_gms vendor/google/gms -b eleven
-git clone --depth=1 https://github.com/xdroid-CAF/xd_vendor_google_pixel vendor/google/pixel -b eleven
+#git clone --depth=1 https://gitlab.com/xyzuan/xdroid_vendor_google_gms vendor/google/gms -b eleven
+#git clone --depth=1 https://github.com/xdroid-CAF/xd_vendor_google_pixel vendor/google/pixel -b eleven
 
 # patch
-cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/dd5e09e3d61849785039e92ee55bba8a662db3f6.patch | git am
-cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/9c1568b4316466365eb83fc8577c6543d75a9297.patch | git am
+#cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/dd5e09e3d61849785039e92ee55bba8a662db3f6.patch | git am
+#cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/9c1568b4316466365eb83fc8577c6543d75a9297.patch | git am
 
 #bash /tmp/rom/vendor/nusantara/scripts/merge-aosp.sh security-10.0.0_r75
 
