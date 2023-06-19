@@ -1,11 +1,11 @@
 # Normal build steps
 . build/envsetup.sh
-lunch bliss_lavender-userdebug
+lunch arrow_lavender-userdebug
 
 # export variable here
 export TZ=Asia/Kolkata
 export SELINUX_IGNORE_NEVERALLOWS=true
-export TARGET_BOOTANIMATION_RES=1080
+#export TARGET_BOOTANIMATION_RES=1080
 
 build_gapps=1
 export ARROW_GAPPS=false
@@ -20,5 +20,5 @@ export BLISS_BUILD_VARIANT=gapps
 }
 
 compile_plox () {
-make blissify -j16
+make bacon -j16
 }

@@ -16,7 +16,7 @@ bash ~/git_cookies.sh
 fi
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/BlissRoms/platform_manifest.git -b typhoon -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify -u https://github.com/ArrowOS/android_manifest.git -b arrow-13.1 -g default,-mips,-darwin,-notdefault
 git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b 13-4.19 .repo/local_manifests
 
 # Sync source without unnecessary messages, try with -j16 first, if fails, it will try again
@@ -38,7 +38,7 @@ git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hard
 
 #test
 #echo "KERNEL_CUSTOM_LLVM := true" >> device/xiaomi/lavender/B*.mk
-sed -i 's|QCOM_HARDWARE_VARIANT := msm8998|QCOM_HARDWARE_VARIANT := sdm660|' vendor/bliss/config/B*Qcom.mk
+#sed -i 's|QCOM_HARDWARE_VARIANT := msm8998|QCOM_HARDWARE_VARIANT := sdm660|' vendor/bliss/config/B*Qcom.mk
 
 # powerhint
 #rm -rf /tmp/rom/vendor/qcom/opensource/power
