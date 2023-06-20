@@ -41,8 +41,9 @@ rm -rf /tmp/rom/vendor/qcom/opensource/power
 git clone --depth=1 https://github.com/Nub-XD/android_vendor_qcom-opensource_power vendor/qcom/opensource/power -b ruby
 
 # patch
-cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/dd5e09e3d61849785039e92ee55bba8a662db3f6.patch | git am
-cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/9c1568b4316466365eb83fc8577c6543d75a9297.patch | git am
+cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/54b121877c69b947176f316ca3459bf575bec92b.patch | git am
+cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/ed80e1a575856e5d871261e9a9c6f2afcce10752.patch | git am
+cd /tmp/rom/frameworks/base && curl https://github.com/Nub-XD/android_frameworks_base/commit/90de88e51f2925561fd97c0ffcb9b8bdbe516be0.patch | git am
 
 #bash /tmp/rom/vendor/nusantara/scripts/merge-aosp.sh security-10.0.0_r75
 
