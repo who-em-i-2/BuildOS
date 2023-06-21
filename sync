@@ -45,6 +45,8 @@ git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hard
 #git clone --depth=1 https://github.com/Nub-XD/vendor_qcom_opensource_power /tmp/rom/vendor/qcom/opensource/power -b t
 
 # patch
+rm -rf /tmp/rom/bionic
+git clone --depth=1 https://github.com/wHo-EM-i/bionic -b arrow-13.1
 #cd /tmp/rom/hardware/qcom/display && curl https://github.com/wHo-EM-i/android_hardware_qcom_display/commit/bbbf547753f8b7f88e86efe13cefbdce7c72c5fc.patch | git am
 #cd /tmp/rom/vendor/qcom/opensource/commonsys-intf/display && curl https://github.com/wHo-EM-i/vendor-qcom-opensource-display-commonsys-intf/commit/1ebc3b7c336ad5e7c11ca9ce1130032aa3928151.patch | git am
 #cd /tmp/rom/vendor/qcom/opensource/commonsys/display && curl https://github.com/wHo-EM-i/vendor-qcom-opensource-display-commonsys/commit/1265649c6373b750b394bd91a8a91ebb9c03bb45.patch | git am
