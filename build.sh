@@ -15,4 +15,5 @@ export WITH_GMS=false
 
 compile_plox () {
 mka bacon -j17
+ls /tmp/rom/out/target/product/lav*/*2023*zip || make bacon -j8
 }
