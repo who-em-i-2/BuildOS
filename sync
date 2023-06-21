@@ -40,6 +40,12 @@ git clone --depth=1 https://github.com/xdroid-CAF/xd_vendor_google_pixel vendor/
 rm -rf /tmp/rom/vendor/qcom/opensource/power
 git clone --depth=1 https://github.com/Nub-XD/android_vendor_qcom-opensource_power vendor/qcom/opensource/power -b ruby
 
+# re clone hals
+rm -rf /tmp/rom/hardware/qcom-caf/msm8998/display /tmp/rom/hardware/qcom-caf/msm8998/audio /tmp/rom/hardware/qcom-caf/msm8998/media
+git clone --depth=1 https://github.com/ArrowOS/android_hardware_qcom_display /tmp/rom/hardware/qcom-caf/msm8998/display -b arrow-11.0-caf-msm8998
+git clone --depth=1 https://github.com/ArrowOS/android_hardware_qcom_audio /tmp/rom/hardware/qcom-caf/msm8998/audio -b arrow-11.0-caf-msm8998
+git clone --depth=1 https://github.com/ArrowOS/android_hardware_qcom_media /tmp/rom/hardware/qcom-caf/msm8998/media -b arrow-11.0-caf-msm8998
+
 # patch
 cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/54b121877c69b947176f316ca3459bf575bec92b.patch | git am
 cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/ed80e1a575856e5d871261e9a9c6f2afcce10752.patch | git am
