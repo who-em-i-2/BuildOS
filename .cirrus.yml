@@ -7,6 +7,8 @@ env: # Environment variables to pass to all tasks
     github_token: "ENCRYPTED[!b37d560adaeb2a229b43a007b506361590ebf8ee0c8dd3ed643dd265921a16a1e9c6cd30813ab8888843e3630f4e06b0!]" # alt id
     bot_api: "ENCRYPTED[!c262f1e147caa787ff1ff0923ce95604e26b01fdedf819bd14e5d9d2a9028d7dd8af95f4f364d841ea4819891d46c76a!]"
     chat_id: "-1001428571638"
+    v_core: "16"
+    s_core: "16"
     git_cookies: 0
     REAL_REPO_OWNER: "wHo-EM-i" # main id
 
