@@ -32,6 +32,9 @@ git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git /tmp/rom/pr
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/XiaomiParts vendor/XiaomiParts -b Arrow-R
 #git clone --depth=1 https://github.com/Nub-XD/platform_vendor_lawnchair vendor/lawnchair -b 11
 
+rm -rf /tmp/rom/frameworks/base
+git clone --depth=1 https://github.com/Nub-XD/android_frameworks_base /tmp/rom/frameworks/base -b arrow-11.0
+
 # Gapps
 #git clone --depth=1 https://gitlab.com/xyzuan/xdroid_vendor_google_gms vendor/google/gms -b eleven
 #git clone --depth=1 https://github.com/xdroid-CAF/xd_vendor_google_pixel vendor/google/pixel -b eleven
