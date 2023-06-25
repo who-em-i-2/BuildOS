@@ -26,9 +26,11 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_xiaomi_lavender -b topaz device/xiaomi/lavender
 
 # patch
+rm -rf /tmp/rom/bionic
+git clone --depth=1 https://github.com/wHo-EM-i/bionic -b topaz
 rm -rf /tmp/rom/vendor/qcom/opensource/commonsys/display/libqdmetadata
 #cd /tmp/rom/vendor/aospa && curl https://github.com/AOSPA/android_vendor_aospa/commit/15c966c916008187227054b024fbfe63e287483b.patch | git am
-cd /tmp/rom/bionic && curl https://github.com/wHo-EM-i/bionic/commit/61ea0bc221c8ae7992b44c58302e23ab3e748742.patch | git am
+#cd /tmp/rom/bionic && curl https://github.com/wHo-EM-i/bionic/commit/61ea0bc221c8ae7992b44c58302e23ab3e748742.patch | git am
 #cd /tmp/rom/system/libhidl && curl https://github.com/ArrowOS/android_system_libhidl/commit/fbdf10a33f546d202ae12b4b864177fea9faa998.patch | git am
 #cd /tmp/rom/device/qcom/common && sed -i 's|include device/qcom/sepolicy/SEPolicy.mk|-include device/qcom/sepolicy-legacy-um/SEPolicy.mk|' B*Qcom.mk
 cp -vf /tmp/rom/device/xiaomi/lavender/configs/perf/*.xml /tmp/rom/device/qcom/common/vendor/perf/configs/sdm660/perf
