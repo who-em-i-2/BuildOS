@@ -36,10 +36,6 @@ git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/XiaomiParts 
 git clone --depth=1 https://gitlab.com/xyzuan/xdroid_vendor_google_gms vendor/google/gms -b eleven
 git clone --depth=1 https://github.com/xdroid-CAF/xd_vendor_google_pixel vendor/google/pixel -b eleven
 
-# re clone
-rm -rf /tmp/rom/vendor/qcom/opensource/power
-git clone --depth=1 https://github.com/Nub-XD/android_vendor_qcom-opensource_power vendor/qcom/opensource/power -b ruby
-
 # re clone hals
 rm -rf /tmp/rom/hardware/qcom-caf/msm8998/display /tmp/rom/hardware/qcom-caf/msm8998/audio /tmp/rom/hardware/qcom-caf/msm8998/media
 git clone --depth=1 https://github.com/ArrowOS/android_hardware_qcom_display /tmp/rom/hardware/qcom-caf/msm8998/display -b arrow-11.0-caf-msm8998
@@ -50,6 +46,7 @@ git clone --depth=1 https://github.com/ArrowOS/android_hardware_qcom_media /tmp/
 cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/54b121877c69b947176f316ca3459bf575bec92b.patch | git am
 cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/ed80e1a575856e5d871261e9a9c6f2afcce10752.patch | git am
 cd /tmp/rom/frameworks/base && curl https://github.com/Nub-XD/android_frameworks_base/commit/90de88e51f2925561fd97c0ffcb9b8bdbe516be0.patch | git am
+cd /tmp/rom/vendor/qcom/opensource/power && curl https://github.com/Nub-XD/android_vendor_qcom-opensource_power/commit/8367d039bb345644be2b3d67d59f366e4ae18681.patch | git am
 
 #bash /tmp/rom/vendor/nusantara/scripts/merge-aosp.sh security-10.0.0_r75
 
