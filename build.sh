@@ -7,10 +7,10 @@ export TZ=Asia/Kolkata
 export SELINUX_IGNORE_NEVERALLOWS=true
 #export TARGET_BOOTANIMATION_RES=1080
 
-build_gapps=1
-export ARROW_GAPPS=false
-export WITH_GMS=false
-export WITH_GAPPS=false
+#build_gapps=1
+export ARROW_GAPPS=true
+#export WITH_GMS=false
+#export WITH_GAPPS=false
 
 exp_gapps() {
 export ARROW_GAPPS=true
