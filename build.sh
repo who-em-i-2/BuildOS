@@ -5,6 +5,8 @@ lunch arrow_lavender-userdebug
 # export variable here
 export TZ=Asia/Kolkata
 export SELINUX_IGNORE_NEVERALLOWS=true
+export BUILD_BROKEN_DUP_RULES=true
+export RELAX_USES_LIBRARY_CHECK=true
 #export TARGET_BOOTANIMATION_RES=1080
 
 #build_gapps=1
