@@ -33,6 +33,7 @@ git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kerne
 git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
 
 #rm -rf /tmp/rom/device/xiaomi/lavender/libhidl
+rm -rf /tmp/rom/hardware/xiaomi/megvii/*.bp
 
 #hals
 rm -rf hardware/qcom-caf/sdm660/audio hardware/qcom-caf/sdm660/media hardware/qcom-caf/sdm660/display
