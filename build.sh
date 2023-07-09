@@ -1,6 +1,6 @@
 # Normal build steps
 . build/envsetup.sh
-lunch arrow_lavender-userdebug
+lunch awaken_lavender-userdebug
 
 # export variable here
 export TZ=Asia/Kolkata
@@ -9,12 +9,15 @@ export BUILD_BROKEN_DUP_RULES=true
 export RELAX_USES_LIBRARY_CHECK=true
 #export TARGET_BOOTANIMATION_RES=1080
 
-#build_gapps=1
-export ARROW_GAPPS=true
-#export WITH_GMS=false
-#export WITH_GAPPS=false
+build_gapps=1
+export ARROW_GAPPS=false
+export WITH_GMS=false
+export WITH_GAPPS=false
+export USE_GAPPS=false
 
 exp_gapps() {
+export TARGET_GAPPS_ARCH=arm64
+export USE_GAPPS=true
 export ARROW_GAPPS=true
 export WITH_GMS=true
 export WITH_GAPPS=true
