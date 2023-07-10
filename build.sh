@@ -1,8 +1,8 @@
 # Normal build steps
 . build/envsetup.sh
-lunch lineage_lavender-userdebug
+lunch havoc_lavender-userdebug
 
-build_gapps=1
+build_gapps=0
 
 # export variable here
 export TZ=Asia/Kolkata
@@ -14,6 +14,6 @@ export WITH_GMS=false
 }
 
 compile_plox () {
-mka bacon -j17
-ls /tmp/rom/out/target/product/lav*/*2023*zip || make bacon -j8
+m bacon -j17
+#ls /tmp/rom/out/target/product/lav*/*2023*zip || make bacon -j8
 }
