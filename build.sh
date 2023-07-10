@@ -9,7 +9,7 @@ export BUILD_BROKEN_DUP_RULES=true
 export RELAX_USES_LIBRARY_CHECK=true
 #export TARGET_BOOTANIMATION_RES=1080
 
-build_gapps=1
+#build_gapps=1
 export ARROW_GAPPS=false
 export WITH_GMS=false
 export WITH_GAPPS=false
