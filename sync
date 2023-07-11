@@ -44,7 +44,7 @@ curl https://github.com/wHo-EM-i/bionic/commit/9e3a6c972f82910d2ae0faf56b8db3a0c
 curl https://github.com/wHo-EM-i/bionic/commit/f831980bc09e675f323ab86db42e25e035930638.patch | git am
 
 echo "Applying Display Patch"
-cd /hardware/qcom-caf/msm8998/display
+cd /tmp/rom/hardware/qcom-caf/msm8998/display
 curl https://github.com/OdSazib/hardware_qcom_display/commit/bd2853cf52a2481e5e8208a0b93b67cbcc3bc284.patch | git am
 
 # patch
