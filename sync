@@ -24,11 +24,11 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 
 # tree
 git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_xiaomi_lavender-old device/xiaomi/lavender -b thirteen-triton
-git clone --depth=1 https://github.com/AaradhayVijay/vendor_xiaomi_lavender vendor/xiaomi/lavender -b thirteen
-git clone --depth=1 https://github.com/AaradhayVijay/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b thirteen-arrow
-git clone --depth=1 https://github.com/AaradhayVijay/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b thirteen-wip
+git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/AaradhayVijay/vendor_xiaomi_lavender vendor/xiaomi/lavender -b thirteen
+git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/AaradhayVijay/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b thirteen-arrow
+git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/AaradhayVijay/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b thirteen-wip
 
-git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel/xiaomi/sdm660 -b X2
+git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel/xiaomi/sdm660 -b X3-Beta
 
 git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
 
