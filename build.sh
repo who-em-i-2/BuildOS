@@ -1,18 +1,19 @@
 # Normal build steps
 . build/envsetup.sh
-lunch legion_lavender-userdebug
+lunch lineage_lavender-userdebug
 
 build_gapps=1
 
 # export variable here
 export TZ=Asia/Kolkata
 export SELINUX_IGNORE_NEVERALLOWS=true
-export LEGION_GAPPS=false
+export WITH_GMS=false
 
 exp_gapps() {
-export LEGION_GAPPS=true
+export WITH_GMS=true
+export TARGET_CORE_GMS=true
 }
 
 compile_plox () {
-m bacon -j17
+mka bacon -j17
 }
