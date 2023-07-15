@@ -1,0 +1,14 @@
+env:
+    token: "ENCRYPTED[1525b6bbd832cca891fca78cf804b33957d259f5517479cdd8fc997ce6a8943a733f678e66fba88bc082b963ff59ea00]"
+    chat_id: "ENCRYPTED[be88ba200ae102f279631d6abbd142e88f68b87555161e2f570fb3d4616f73a65ab592caff147379e4d97a717daaa7dd]"
+
+task:
+  name: "Nexus-Kernel-Builder"
+  timeout_in: 2h
+  container:
+      image: nexgang/ubuntu:latest
+      cpu: 8
+      memory: 32G
+
+  Build_script:
+      - bash setup.sh
