@@ -6,7 +6,7 @@ lunch nad_lavender-userdebug
 export TZ=Asia/Kolkata
 export SELINUX_IGNORE_NEVERALLOWS=true
 
-build_gapps=0
+build_gapps=1
 
 exp_gapps () {
 export USE_GAPPS=true
