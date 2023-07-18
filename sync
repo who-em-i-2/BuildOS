@@ -17,7 +17,7 @@ fi
 
 # Sync source
 repo init --depth=1 --no-repo-verify -u https://github.com/LineageOS/android.git -b lineage-20.0 -g default,-mips,-darwin,-notdefault
-#git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b 13-4.19 .repo/local_manifests
+git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b lineage .repo/local_manifests
 
 # Sync source without unnecessary messages, try with -j16 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
@@ -28,7 +28,7 @@ git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/AaradhayVijay/vendo
 git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/AaradhayVijay/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b thirteen-arrow
 git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/AaradhayVijay/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b thirteen
 
-git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel/xiaomi/sdm660 -b X3-Retro
+git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel/xiaomi/sdm660 -b 13-Retro
 
 git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
 
@@ -57,8 +57,8 @@ git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hard
 #rm -rf /tmp/rom/bionic
 #git clone --depth=1 https://github.com/wHo-EM-i/bionic -b arrow-13.1
 cd /tmp/rom/bionic
-curl https://github.com/wHo-EM-i/bionic/commit/9e3a6c972f82910d2ae0faf56b8db3a0c2bd83a6.patch | git am
-curl https://github.com/wHo-EM-i/bionic/commit/2a8b590dfe23620be18a535420af6a5f7ebaae16.patch | git am
+# curl https://github.com/wHo-EM-i/bionic/commit/9e3a6c972f82910d2ae0faf56b8db3a0c2bd83a6.patch | git am #revert lib for jemalloc
+# curl https://github.com/wHo-EM-i/bionic/commit/2a8b590dfe23620be18a535420af6a5f7ebaae16.patch | git am #jemalloc
 curl https://github.com/wHo-EM-i/bionic/commit/e8b68f026fb0d6ce13351c55695a6d6cf2742dff.patch | git am
 curl https://github.com/wHo-EM-i/bionic/commit/8bfccafe0a7c5d2584ce0aa414c846a13caee07b.patch | git am
 curl https://github.com/wHo-EM-i/bionic/commit/6db6121472c45316bc6135f05da38227fdc9962e.patch | git am
