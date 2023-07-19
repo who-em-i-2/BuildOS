@@ -24,7 +24,7 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 # tree
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b R
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/vendor_xiaomi_lavender vendor/xiaomi/lavender -b R
-git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/kernel_xiaomi_lavender kernel/xiaomi/lavender -b X6-Qti
+git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/kernel_xiaomi_lavender kernel/xiaomi/lavender -b X7-Qti
 
 # extra stuff
 #git clone --depth=1 https://github.com/LineageOS/android_hardware_lineage_livedisplay hardware/lineage/livedisplay -b lineage-17.1
@@ -33,8 +33,7 @@ git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/XiaomiParts 
 #git clone --depth=1 https://github.com/Nub-XD/platform_vendor_lawnchair vendor/lawnchair -b 11
 
 # Gapps
-git clone --depth=1 https://gitlab.com/xyzuan/xdroid_vendor_google_gms vendor/google/gms -b eleven
-git clone --depth=1 https://github.com/xdroid-CAF/xd_vendor_google_pixel vendor/google/pixel -b eleven
+git clone --depth=1 https://gitlab.com/MindTheGapps/vendor_gapps vendor/gapps -b rho
 
 # re clone hals
 rm -rf /tmp/rom/hardware/qcom-caf/msm8998/display /tmp/rom/hardware/qcom-caf/msm8998/audio /tmp/rom/hardware/qcom-caf/msm8998/media
@@ -43,8 +42,11 @@ git clone --depth=1 https://github.com/ArrowOS/android_hardware_qcom_audio /tmp/
 git clone --depth=1 https://github.com/ArrowOS/android_hardware_qcom_media /tmp/rom/hardware/qcom-caf/msm8998/media -b arrow-11.0-caf-msm8998
 
 # patch
-cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/54b121877c69b947176f316ca3459bf575bec92b.patch | git am
-cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/ed80e1a575856e5d871261e9a9c6f2afcce10752.patch | git am
+cd /tmp/rom/vendor/lineage
+curl https://github.com/Nub-XD/android_vendor/commit/54b121877c69b947176f316ca3459bf575bec92b.patch | git am
+curl https://github.com/Nub-XD/android_vendor/commit/ed80e1a575856e5d871261e9a9c6f2afcce10752.patch | git am
+curl https://github.com/Nub-XD/android_vendor/commit/475fdf804aaa73d116b7565ad845258905ae3d3e.patch | git am
+curl https://github.com/Nub-XD/android_vendor/commit/19d8a5abb6871903aa8a0bd8028a616d35c133b9.patch | git am
 cd /tmp/rom/frameworks/base && curl https://github.com/Nub-XD/android_frameworks_base/commit/90de88e51f2925561fd97c0ffcb9b8bdbe516be0.patch | git am
 cd /tmp/rom/vendor/qcom/opensource/power && curl https://github.com/Nub-XD/android_vendor_qcom-opensource_power/commit/8367d039bb345644be2b3d67d59f366e4ae18681.patch | git am
 
