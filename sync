@@ -33,7 +33,7 @@ git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/XiaomiParts 
 #git clone --depth=1 https://github.com/Nub-XD/platform_vendor_lawnchair vendor/lawnchair -b 11
 
 # Gapps
-git clone --depth=1 https://gitlab.com/MindTheGapps/vendor_gapps vendor/gapps -b rho
+#git clone --depth=1 https://gitlab.com/MindTheGapps/vendor_gapps vendor/gapps -b rho
 git clone --depth=1 https://gitlab.com/havoc_os/android_vendor_gapps vendor/gapps -b eleven
 
 # re clone hals
