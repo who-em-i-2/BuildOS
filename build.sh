@@ -10,7 +10,8 @@ export SELINUX_IGNORE_NEVERALLOWS=true
 export WITH_GMS=true
 
 exp_gapps () {
-export WITH_GMS=false
+export WITH_GMS=true
+export WITH_GMS_CORE=true
 }
 
 compile_plox () {

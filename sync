@@ -34,6 +34,7 @@ git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/XiaomiParts 
 
 # Gapps
 git clone --depth=1 https://gitlab.com/MindTheGapps/vendor_gapps vendor/gapps -b rho
+git clone --depth=1 https://gitlab.com/havoc_os/android_vendor_gapps vendor/gapps -b eleven
 
 # re clone hals
 rm -rf /tmp/rom/hardware/qcom-caf/msm8998/display /tmp/rom/hardware/qcom-caf/msm8998/audio /tmp/rom/hardware/qcom-caf/msm8998/media
