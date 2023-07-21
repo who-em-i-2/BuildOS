@@ -1,13 +1,13 @@
 # Normal build steps
 . build/envsetup.sh
-lunch lineage_lavender-userdebug
+lunch evolution_lavender-userdebug
 
-build_gapps=1
+build_gapps=0
 
 # export variable here
 export TZ=Asia/Kolkata
 export SELINUX_IGNORE_NEVERALLOWS=true
-export WITH_GMS=false
+#export WITH_GMS=false
 
 exp_gapps() {
 export WITH_GMS=true
