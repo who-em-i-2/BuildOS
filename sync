@@ -23,10 +23,10 @@ git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b lineage .repo/lo
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
 
 # tree
-git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_xiaomi_lavender-old device/xiaomi/lavender -b thirteen-los
-git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/AaradhayVijay/vendor_xiaomi_lavender vendor/xiaomi/lavender -b thirteen
-git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/AaradhayVijay/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b thirteen-arrow
-git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/AaradhayVijay/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b thirteen
+git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_lavender device/xiaomi/lavender -b 13
+git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/vendor_lavender vendor/xiaomi/lavender -b 13
+git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 13
+git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 13
 
 git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel/xiaomi/sdm660 -b 13-Retro
 
@@ -54,9 +54,9 @@ git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hard
 #git clone --depth=1 https://github.com/Nub-XD/vendor_qcom_opensource_power /tmp/rom/vendor/qcom/opensource/power -b t
 
 # patch
-#rm -rf /tmp/rom/bionic
-#git clone --depth=1 https://github.com/wHo-EM-i/bionic -b arrow-13.1
-cd /tmp/rom/bionic
+rm -rf /tmp/rom/bionic
+git clone --depth=1 https://github.com/wHo-EM-i/bionic -b los20
+#cd /tmp/rom/bionic
 # curl https://github.com/wHo-EM-i/bionic/commit/9e3a6c972f82910d2ae0faf56b8db3a0c2bd83a6.patch | git am #revert lib for jemalloc
 # curl https://github.com/wHo-EM-i/bionic/commit/2a8b590dfe23620be18a535420af6a5f7ebaae16.patch | git am #jemalloc
 #curl https://github.com/wHo-EM-i/bionic/commit/e8b68f026fb0d6ce13351c55695a6d6cf2742dff.patch | git am
