@@ -16,4 +16,5 @@ export TARGET_CORE_GMS=true
 
 compile_plox () {
 mka evolution -j17
+mv out/target/product/lavender/*lavender-ota*.zip out/target/product/lavender/evolution_lavender.zip
 }
