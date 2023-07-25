@@ -10,6 +10,8 @@ export SELINUX_IGNORE_NEVERALLOWS=true
 #export BUILD_BROKEN_DUP_RULES=true
 export RELAX_USES_LIBRARY_CHECK=true
 export WITH_GMS=true
+export EVO_BUILD_TYPE=K4.19
+export TARGET_USES_MINI_GAPPS=true
 
 exp_gapps() {
 export TARGET_GAPPS_ARCH=arm64
