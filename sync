@@ -45,7 +45,10 @@ git clone --depth=1 https://github.com/ArrowOS/android_hardware_qcom_media /tmp/
 
 # patch
 cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/4a5f01ebdf57e5e63f9acb6e8344b750b9d4aab4.patch | git am
-cd /tmp/rom/frameworks/base && curl https://github.com/Nub-XD/android_frameworks_base/commit/90de88e51f2925561fd97c0ffcb9b8bdbe516be0.patch | git am
+cd /tmp/rom/frameworks/base
+curl https://github.com/Nub-XD/android_frameworks_base/commit/5ed815306508b5b429c886d305dd9da7c308372b.patch | git am
+curl https://github.com/Nub-XD/android_frameworks_base/commit/f1415c960bdceb6ed2e0e3e9fa35dfe5aa3b22b6.patch | git am
+curl https://github.com/Nub-XD/android_frameworks_base/commit/dd13d8b2da20da067e66cadc85dd76ff6d3b8db5.patch | git am
 cd /tmp/rom/vendor/qcom/opensource/power && curl https://github.com/Nub-XD/android_vendor_qcom_opensource_power/commit/8367d039bb345644be2b3d67d59f366e4ae18681.patch | git am
 
 #bash /tmp/rom/vendor/nusantara/scripts/merge-aosp.sh security-10.0.0_r75
