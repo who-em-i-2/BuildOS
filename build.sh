@@ -1,6 +1,6 @@
 # Normal build steps
 . build/envsetup.sh
-lunch lineage_lavender-userdebug
+lunch derp_lavender-userdebug
 
 #build_gapps=1
 
@@ -20,5 +20,5 @@ export TARGET_USES_MINI_GAPPS=true
 #}
 
 compile_plox () {
-mka bacon -j17
+mka derp -j17
 }

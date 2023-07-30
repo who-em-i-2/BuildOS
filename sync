@@ -16,7 +16,7 @@ bash ~/git_cookies.sh
 fi
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/RisingTechOSS/android -b thirteen --git-lfs
+repo init --depth=1 --no-repo-verify -u https://github.com/DerpFest-AOSP/manifest.git -b 13 --git-lfs -g default,-mips,-darwin,-notdefault
 #git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b lineage .repo/local_manifests
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
