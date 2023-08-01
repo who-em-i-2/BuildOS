@@ -28,9 +28,15 @@ git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/vendor_lav
 git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 13-clo
 git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 13-clo
 
-git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel/xiaomi/sdm660 -b 13-Retro
+git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel/msm-4.19 -b 13-Retro
 
-git clone --depth=1 https://github.com/AOSPA/android_hardware_xiaomi hardware/xiaomi -b topaz
+# libtinyxml
+ls /tmp/rom/external/tinyxml || git clone --depth=1 https://github.com/ArrowOS/android_external_tinyxml /tmp/rom/external/tinyxml
+
+# Dolby
+git clone --depth=1 https://github.com/dib12/vendor_dolby_ds vendor/dolby/ds -b A13
+
+git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_xiaomi hardware/xiaomi -b topaz
 rm -rf /tmp/rom/hardware/xiaomi/hidl/biometrics/fingerprint
 
 echo "SELINUX_IGNORE_NEVERALLOWS := true" >> device/xiaomi/lavender/B*.mk
@@ -49,8 +55,8 @@ echo "SELINUX_IGNORE_NEVERALLOWS := true" >> device/xiaomi/lavender/B*.mk
 #echo "KERNEL_CUSTOM_LLVM := true" >> device/xiaomi/lavender/B*.mk
 
 #clo-kernel
-mv -f /tmp/rom/kernel/xiaomi/sdm660/Androidbp /tmp/rom/kernel/xiaomi/sdm660/Android.bp
-mv -f /tmp/rom/kernel/xiaomi/sdm660/techpack/audio/Androidbp /tmp/rom/kernel/xiaomi/sdm660/techpack/audio/Android.bp
+mv -f /tmp/rom/kernel/msm-4.19/Androidbp /tmp/rom/kernel/msm-4.19/Android.bp
+mv -f /tmp/rom/kernel/msm-4.19/techpack/audio/Androidbp /tmp/rom/kernel/msm-4.19/techpack/audio/Android.bp
 
 # patch
 #rm -rf /tmp/rom/bionic
