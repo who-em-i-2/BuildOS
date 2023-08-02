@@ -39,6 +39,9 @@ git clone --depth=1 https://github.com/dib12/vendor_dolby_ds vendor/dolby/ds -b 
 git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_xiaomi hardware/xiaomi -b topaz
 rm -rf /tmp/rom/hardware/xiaomi/hidl/biometrics/fingerprint
 
+rm -rf /tmp/rom/device/qcom/common && git clone https://github.com/AOSPA/android_device_qcom_common -b topaz device/qcom/common && cd device/qcom/common && git revert 2ccc02a1224c745b0892ca3fba79e284d0ac55c9
+cd /tmp/rom
+
 echo "SELINUX_IGNORE_NEVERALLOWS := true" >> device/xiaomi/lavender/B*.mk
 
 #hals
