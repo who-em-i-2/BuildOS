@@ -11,7 +11,7 @@ export SELINUX_IGNORE_NEVERALLOWS=true
 
 exp_gapps () {
 export WITH_GMS=true
-#export WITH_GMS_MINIMAL=true
+export WITH_GMS_MINIMAL=true
 }
 
 compile_plox () {
