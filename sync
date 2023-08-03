@@ -34,7 +34,7 @@ git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kerne
 ls /tmp/rom/external/tinyxml || git clone --depth=1 https://github.com/ArrowOS/android_external_tinyxml /tmp/rom/external/tinyxml
 
 # Dolby
-git clone --depth=1 https://github.com/dib12/vendor_dolby_ds vendor/dolby/ds -b A13
+#git clone --depth=1 https://github.com/dib12/vendor_dolby_ds vendor/dolby/ds -b A13
 
 git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_xiaomi hardware/xiaomi -b topaz
 rm -rf /tmp/rom/hardware/xiaomi/hidl/biometrics/fingerprint
