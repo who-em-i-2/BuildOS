@@ -1,6 +1,6 @@
 # Normal build steps
 . build/envsetup.sh
-lunch derp_lavender-userdebug
+lunch blaze_lavender-userdebug
 
 build_gapps=1
 
@@ -10,6 +10,7 @@ export SELINUX_IGNORE_NEVERALLOWS=true
 #export BUILD_BROKEN_DUP_RULES=true
 export RELAX_USES_LIBRARY_CHECK=true
 export WITH_GMS=false
+export USE_GAPPS=false
 
 exp_gapps() {
 export USE_GAPPS=true
@@ -20,5 +21,5 @@ export TARGET_USES_MINI_GAPPS=true
 }
 
 compile_plox () {
-mka derp -j17
+mka bacon -j17
 }
