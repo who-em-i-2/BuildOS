@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+echo "********************************"
+ldd --version
+echo "********************************"
+
 # Clone kernel
 git clone --depth=1 https://github.com/projects-nexus/nexus_kernel_xiaomi_sm8250 -b staging kernel
 
