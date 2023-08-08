@@ -16,7 +16,7 @@ bash ~/git_cookies.sh
 fi
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/AlphaDroid-Project/manifest.git -b alpha-13 --git-lfs -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify -u https://github.com/CherishOS/android_manifest.git -b tiramisu --git-lfs -g default,-mips,-darwin,-notdefault
 #git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b lineage .repo/local_manifests
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
@@ -46,6 +46,9 @@ git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_audio hard
 git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_display hardware/qcom-caf/sdm660/display -b 13-caf_4.19
 git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hardware/qcom-caf/sdm660/media -b 13-caf-sdm660
 ls /tmp/rom/external/tinyxml || git clone --depth=1 https://github.com/ArrowOS/android_external_tinyxml /tmp/rom/external/tinyxml
+
+# rom maintainer
+echo "ro.cherish.maintainer=SpiDyNub" >> /tmp/rom/vendor/xiaomi/sdm660-common/vendor.prop
 
 # patch
 #rm -rf /tmp/rom/bionic
