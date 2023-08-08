@@ -47,6 +47,9 @@ git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_display ha
 git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hardware/qcom-caf/sdm660/media -b 13-caf-sdm660
 ls /tmp/rom/external/tinyxml || git clone --depth=1 https://github.com/ArrowOS/android_external_tinyxml /tmp/rom/external/tinyxml
 
+# rev bootani
+cd /tmp/rom/vendor/addons && curl https://github.com/Nub-XD/vendor_addons/commit/5d01c47dd4a18680629776f081e8c4d143158c47.patch | git am
+
 # patch
 #rm -rf /tmp/rom/bionic
 #git clone --depth=1 https://github.com/wHo-EM-i/bionic -b los20
