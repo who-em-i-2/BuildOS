@@ -17,7 +17,7 @@ env: # Environment variables to pass to all tasks
     gmail: ehteshammalik18998@gmail.com
 
 task:
-    name: T-4.19
+    name: 10
     timeout_in: 120m
     container:
       image: nexgang/ubuntu:latest
