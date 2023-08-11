@@ -55,6 +55,9 @@ echo " boot animation patch "
 rm -rf vendor/addons
 git clone --depth=1 https://github.com/Nub-XD/vendor_addons vendor/addons -b alpha-13
 
+cd /tmp/rom/frameworks/base
+curl https://github.com/xenxynon/android_frameworks_base/commit/1043bdf54eff5f4807d83118e451937091a88963.patch | git am
+
 # patch
 #rm -rf /tmp/rom/bionic
 #git clone --depth=1 https://github.com/wHo-EM-i/bionic -b los20
