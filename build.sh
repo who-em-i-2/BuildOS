@@ -18,7 +18,7 @@ export TARGET_CORE_GMS=true
 export WITH_GAPPS=true
 export BLISS_BUILD_VARIANT=gapps
 export TARGET_USES_MINI_GAPPS=true
-export GAPPS_BUILD_TYPE=2
+export GAPPS_BUILD_TYPE=1
 }
 
 compile_plox () {
