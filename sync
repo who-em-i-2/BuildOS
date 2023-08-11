@@ -50,9 +50,6 @@ git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_display ha
 git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hardware/qcom-caf/sdm660/media -b 13-caf-sdm660
 ls /tmp/rom/external/tinyxml || git clone --depth=1 https://github.com/ArrowOS/android_external_tinyxml /tmp/rom/external/tinyxml
 
-# rom maintainer
-echo "ro.cherish.maintainer=SpiDyNub" >> /tmp/rom/vendor/xiaomi/sdm660-common/vendor.prop
-
 # patch
 #rm -rf /tmp/rom/bionic
 #git clone --depth=1 https://github.com/wHo-EM-i/bionic -b los20
