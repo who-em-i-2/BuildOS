@@ -11,7 +11,7 @@ export SKIP_ABI_CHECKS=true
 export BUILD_BROKEN_VERIFY_USES_LIBRARIES=true
 export RELAX_USES_LIBRARY_CHECK=true
 
-build_gapps=1
+build_gapps=0
 
 exp_gapps () {
 export USE_GAPPS=false
