@@ -2,7 +2,7 @@
 . build/envsetup.sh
 lunch lineage_lavender-user
 
-#build_gapps=1
+build_gapps=1
 
 # export variable here
 export TZ=Asia/Kolkata

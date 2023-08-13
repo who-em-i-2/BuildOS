@@ -47,7 +47,7 @@ rm -rf /tmp/rom/frameworks/base
 git clone --depth=1 https://github.com/Nub-XD/android_frameworks_base /tmp/rom/frameworks/base -b 11.0
 
 # patch
-cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/4a5f01ebdf57e5e63f9acb6e8344b750b9d4aab4.patch | git am
+cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/57c2be4551fcd1fce818c8ffccf7324aad6a6994.patch | git am
 cd /tmp/rom/vendor/qcom/opensource/power && curl https://github.com/Nub-XD/android_vendor_qcom_opensource_power/commit/8367d039bb345644be2b3d67d59f366e4ae18681.patch | git am
 
 #bash /tmp/rom/vendor/nusantara/scripts/merge-aosp.sh security-10.0.0_r75
