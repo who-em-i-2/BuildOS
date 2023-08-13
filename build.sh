@@ -1,6 +1,6 @@
 # Normal build steps
 . build/envsetup.sh
-lunch lineage_lavender-userdebug
+lunch lineage_lavender-user
 
 #build_gapps=1
 
