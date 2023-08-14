@@ -21,5 +21,5 @@ export TARGET_CORE_GMS=true
 }
 
 compile_plox () {
-mka bacon -j17
+mka bacon -j10
 }
