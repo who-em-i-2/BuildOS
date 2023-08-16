@@ -40,7 +40,7 @@ git clone --depth=1 https://github.com/ArrowOS/android_device_qcom_sepolicy-lega
 rm -rf /tmp/rom/hardware/xiaomi/megvii/*.bp
 
 # fix source issue
-rm -rf /tmp/rom/vendor/addons/themes/icons/iconpacks
+#rm -rf /tmp/rom/vendor/addons/themes/icons/iconpacks
 
 # aosp clang 17
 git clone --depth=1 https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r498229 /tmp/rom/prebuilts/clang/host/linux-x86/aosp-clang
@@ -55,8 +55,8 @@ ls /tmp/rom/external/tinyxml || git clone --depth=1 https://github.com/ArrowOS/a
 
 # rev bootani
 echo " boot animation patch "
-rm -rf vendor/addons
-git clone --depth=1 https://github.com/Nub-XD/vendor_addons vendor/addons -b alpha-13
+#rm -rf vendor/addons
+#git clone --depth=1 https://github.com/Nub-XD/vendor_addons vendor/addons -b alpha-13
 
 cd /tmp/rom/frameworks/base
 curl https://github.com/xenxynon/android_frameworks_base/commit/1043bdf54eff5f4807d83118e451937091a88963.patch | git am
