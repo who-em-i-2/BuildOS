@@ -1,8 +1,8 @@
 # Normal build steps
 . build/envsetup.sh
-lunch lavender-userdebug
+lunch superior_lavender-userdebug
 
-#build_gapps=0
+build_gapps=1
 
 # export variable here
 export TZ=Asia/Kolkata
@@ -11,7 +11,7 @@ export SELINUX_IGNORE_NEVERALLOWS=true
 export RELAX_USES_LIBRARY_CHECK=true
 #export WITH_GMS=false
 
-#exp_gapps() {
+exp_gapps() {
 export USE_GAPPS=true
 export WITH_GMS=true
 export TARGET_CORE_GMS=true
@@ -19,8 +19,9 @@ export WITH_GAPPS=true
 export BLISS_BUILD_VARIANT=gapps
 export TARGET_USES_MINI_GAPPS=true
 export GAPPS_BUILD_TYPE=1
-#}
+export BUILD_WITH_GAPPS=true
+}
 
 compile_plox () {
-m otapackage -j12
+make bacon -j12
 }
