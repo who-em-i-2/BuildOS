@@ -1,6 +1,7 @@
 #!/bin/bash
-mkdir -p /tmp/rom # Where to sync sourcecd /tmp/romSECONDS=0
-
+mkdir -p /tmp/rom # Where to sync sourcecd /tmp/rom
+SECONDS=0
+cd /tmp/rom
 if [[ $git_cookies != 0 ]]; then
 
 sudo touch /etc/mtab
