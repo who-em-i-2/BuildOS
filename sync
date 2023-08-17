@@ -1,9 +1,5 @@
 #!/bin/bash
-
-mkdir -p /tmp/rom # Where to sync source
-cd /tmp/rom
-
-SECONDS=0
+mkdir -p /tmp/rom # Where to sync sourcecd /tmp/romSECONDS=0
 
 if [[ $git_cookies != 0 ]]; then
 
@@ -22,20 +18,14 @@ repo init --depth=1 --no-repo-verify -u https://github.com/ProtonPlus-ORG/manife
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
 git clone https://github.com/xenxynon/proton device/nothing/Spacewar
-git clone https://github.com/PixysOS-Devices/packages_apps_PixysGlyph packages/apps/Glyph
-git clone https://github.com/PixysOS-Devices/kernel_nothing_sm7325 kernel/nothing/sm7325
-git clone https://github.com/PixysOS-Devices/vendor_nothing_Spacewar vendor/nothing/Spacewar
-git clone https://gitlab.com/PixysOS/vendor_nothing_camera -b thirteen vendor/nothing/camera
+git clone https://github.com/PixysOS-Devices/packages_apps_PixysGlyph packages/apps/Glyph --depth 1 
+git clone https://github.com/PixysOS-Devices/kernel_nothing_sm7325 kernel/nothing/sm7325 --depth 1 
+git clone https://github.com/PixysOS-Devices/vendor_nothing_Spacewar vendor/nothing/Spacewar --depth 1 
+git clone https://gitlab.com/PixysOS/vendor_nothing_camera -b thirteen vendor/nothing/camera --depth 1 
 git clone https://gitlab.com/PixysOS/vendor_pixys-prebuilts vendor/pixys-prebuilts; rm -rf vendor/pixys-prebuilts/modules
-git fetch https://gerrit.aospa.co/AOSPA/android_frameworks_base refs/changes/27/27727/30 && git cherry-pick FETCH_HEAD
-rm -rf /tmp/rom/device/qcom/sepolicy-legacy-um
 
-cd /tmp/rom/frameworks/base
-git revert --no-commit d9f516d984ee44d6c05f0e2082c8bf405eb2f9ac
-curl https://github.com/xenxynon/android_frameworks_base/commit/9828ec81630c2c9b62171c2be02c77a21bcb493b.patch | git am
-
-. /tmp/ci/function
-tg "$rom_name source sync completed!
+cd /tmp/rom/frameworks/base https://github.com/ProtonPlus-Lavender/frameworks_base && git reset --hard FETCH_HEAD
+. /tmp/ci/functiontg "$rom_name source sync completed!
 Total Size: $(du -sh /tmp/rom | cut -d - -f 1 | cut -d / -f 1)
 Time Took: $(($SECONDS / 60)) minute(s) and $(($SECONDS % 60)) second(s).
 Status: $progress"
