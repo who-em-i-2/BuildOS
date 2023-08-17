@@ -21,46 +21,20 @@ repo init --depth=1 --no-repo-verify -u https://github.com/ProtonPlus-ORG/manife
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
-
-# tree
-git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 13X
-git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/vendor_lavender vendor/xiaomi/lavender -b 13
-git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 13
-git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 13
-
-git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.19 kernel/xiaomi/sdm660 -b 13-Retro
-
-rm -rf /tmp/rom/hardware/xiaomi
-git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
-
+git clone https://github.com/xenxynon/proton device/nothing/Spacewar
+git clone https://github.com/PixysOS-Devices/packages_apps_PixysGlyph packages/apps/Glyph
+git clone https://github.com/PixysOS-Devices/kernel_nothing_sm7325 kernel/nothing/am7325
+git clone https://github.com/PixysOS-Devices/vendor_nothing_Spacewar vendor/nothing/Spacewar
+git clone https://gitlab.com/PixysOS/vendor_nothing_camera -b thirteen vendor/nothing/camera
+git clone https://gitlab.com/PixysOS/vendor_pixys-prebuilts vendor/pixys-prebuilts; rm -rf vendor/pixys-prebuilts/modules
+git fetch https://gerrit.aospa.co/AOSPA/android_frameworks_base refs/changes/27/27727/30 && git cherry-pick FETCH_HEAD
 rm -rf /tmp/rom/device/qcom/sepolicy-legacy-um
-git clone --depth=1 https://github.com/ArrowOS/android_device_qcom_sepolicy-legacy-um device/qcom/sepolicy-legacy-um -b arrow-13.1
-
-#rm -rf /tmp/rom/device/xiaomi/lavender/libhidl
-rm -rf /tmp/rom/hardware/xiaomi/megvii/*.bp
-
-# fix source issue
-#rm -rf /tmp/rom/vendor/addons/themes/icons/iconpacks
-
-# aosp clang 17
-git clone --depth=1 https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r498229 /tmp/rom/prebuilts/clang/host/linux-x86/aosp-clang
-
-#hals
-sed -i 's|QCOM_HARDWARE_VARIANT := msm8998|QCOM_HARDWARE_VARIANT := sdm660|' vendor/*/config/B*Qcom.mk
-rm -rf hardware/qcom-caf/sdm660/audio hardware/qcom-caf/sdm660/media hardware/qcom-caf/sdm660/display
-git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_audio hardware/qcom-caf/sdm660/audio -b 13-caf-sdm660
-git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_display hardware/qcom-caf/sdm660/display -b 13-caf_4.19
-git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hardware/qcom-caf/sdm660/media -b 13-caf-sdm660
-ls /tmp/rom/external/tinyxml || git clone --depth=1 https://github.com/ArrowOS/android_external_tinyxml /tmp/rom/external/tinyxml
-
-# rev bootani
-echo " boot animation patch "
-#rm -rf vendor/addons
-#git clone --depth=1 https://github.com/Nub-XD/vendor_addons vendor/addons -b alpha-13
 
 cd /tmp/rom/frameworks/base
 curl https://github.com/xenxynon/android_frameworks_base/commit/1043bdf54eff5f4807d83118e451937091a88963.patch | git am
-
+curl https://github.com/xenxynon/android_frameworks_base/commit/9828ec81630c2c9b62171c2be02c77a21bcb493b.patch | git am
+curl https://github.com/xenxynon/android_frameworks_base/commit/d848589d114c04b6521497ac760c7408b595a3c2.patch | git am
+curl https://github.com/xenxynon/android_frameworks_base/commit/d848589d114c04b6521497ac760c7408b595a3c2.patch | git am
 # patch
 #rm -rf /tmp/rom/bionic
 #git clone --depth=1 https://github.com/wHo-EM-i/bionic -b los20
