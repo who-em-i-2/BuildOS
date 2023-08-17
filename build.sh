@@ -8,6 +8,7 @@ lunch aosp_Spacewar-user
 export TZ=Asia/Kolkata
 #export BUILD_BROKEN_DUP_RULES=true
 export RELAX_USES_LIBRARY_CHECK=true
+export WITH_GAPPS=true
 
 compile_plox () {
 m updatepackage -j12
