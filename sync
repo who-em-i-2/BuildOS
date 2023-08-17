@@ -23,7 +23,7 @@ repo init --depth=1 --no-repo-verify -u https://github.com/ProtonPlus-ORG/manife
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
 git clone https://github.com/xenxynon/proton device/nothing/Spacewar
 git clone https://github.com/PixysOS-Devices/packages_apps_PixysGlyph packages/apps/Glyph
-git clone https://github.com/PixysOS-Devices/kernel_nothing_sm7325 kernel/nothing/am7325
+git clone https://github.com/PixysOS-Devices/kernel_nothing_sm7325 kernel/nothing/sm7325
 git clone https://github.com/PixysOS-Devices/vendor_nothing_Spacewar vendor/nothing/Spacewar
 git clone https://gitlab.com/PixysOS/vendor_nothing_camera -b thirteen vendor/nothing/camera
 git clone https://gitlab.com/PixysOS/vendor_pixys-prebuilts vendor/pixys-prebuilts; rm -rf vendor/pixys-prebuilts/modules
