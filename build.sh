@@ -11,5 +11,5 @@ export RELAX_USES_LIBRARY_CHECK=true
 export WITH_GAPPS=true
 
 compile_plox () {
-m updatepackage -j12
+m otapackage -j12
 }
