@@ -31,6 +31,7 @@ git fetch https://gerrit.aospa.co/AOSPA/android_frameworks_base refs/changes/27/
 rm -rf /tmp/rom/device/qcom/sepolicy-legacy-um
 
 cd /tmp/rom/frameworks/base
+git revert --no-commit d9f516d984ee44d6c05f0e2082c8bf405eb2f9ac
 curl https://github.com/xenxynon/android_frameworks_base/commit/1043bdf54eff5f4807d83118e451937091a88963.patch | git am
 curl https://github.com/xenxynon/android_frameworks_base/commit/9828ec81630c2c9b62171c2be02c77a21bcb493b.patch | git am
 curl https://github.com/xenxynon/android_frameworks_base/commit/d848589d114c04b6521497ac760c7408b595a3c2.patch | git am
