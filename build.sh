@@ -1,26 +1,14 @@
 # Normal build steps
+cd vendor/proton; curl https://github.com/xenxynon/vendor_proton/commit/8709619bb3e097775e2d3a337d0b3c56ff704101.patch | git am
+cd /tmp/rom
 . build/envsetup.sh
-lunch lavender-userdebug
-
-#build_gapps=0
+lunch aosp_Spacewar-user
 
 # export variable here
 export TZ=Asia/Kolkata
-export SELINUX_IGNORE_NEVERALLOWS=true
 #export BUILD_BROKEN_DUP_RULES=true
 export RELAX_USES_LIBRARY_CHECK=true
-#export WITH_GMS=false
-
-#exp_gapps() {
-export USE_GAPPS=true
-export WITH_GMS=true
-export TARGET_CORE_GMS=true
-export WITH_GAPPS=true
-export BLISS_BUILD_VARIANT=gapps
-export TARGET_USES_MINI_GAPPS=true
-export GAPPS_BUILD_TYPE=1
-#}
 
 compile_plox () {
-m otapackage -j12
+m updatepackage-j12
 }
