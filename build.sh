@@ -10,5 +10,5 @@ export TZ=Asia/Kolkata
 export RELAX_USES_LIBRARY_CHECK=true
 
 compile_plox () {
-m updatepackage-j12
+m updatepackage -j12
 }
