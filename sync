@@ -39,11 +39,11 @@ git clone --depth=1 https://github.com/ArrowOS/android_device_qcom_sepolicy-lega
 #rm -rf /tmp/rom/device/xiaomi/lavender/libhidl
 rm -rf /tmp/rom/hardware/xiaomi/megvii/*.bp
 
-# fix source issue
-#rm -rf /tmp/rom/vendor/addons/themes/icons/iconpacks
-
 # aosp clang 17
 git clone --depth=1 https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r498229 /tmp/rom/prebuilts/clang/host/linux-x86/aosp-clang
+
+rm -rf packages/apps/Launcher3
+git clone --depth=1 https://github.com/SuperiorOS/android_packages_apps_Launcher3 packages/apps/Launcher3 -b QPR3
 
 #hals
 sed -i 's|QCOM_HARDWARE_VARIANT := msm8998|QCOM_HARDWARE_VARIANT := sdm660|' vendor/*/config/B*Qcom.mk
@@ -52,11 +52,6 @@ git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_audio hard
 git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_display hardware/qcom-caf/sdm660/display -b 13-caf_4.19
 git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hardware/qcom-caf/sdm660/media -b 13-caf-sdm660
 ls /tmp/rom/external/tinyxml || git clone --depth=1 https://github.com/ArrowOS/android_external_tinyxml /tmp/rom/external/tinyxml
-
-# rev bootani
-#echo " boot animation patch "
-#rm -rf vendor/addons
-#git clone --depth=1 https://github.com/Nub-XD/vendor_addons vendor/addons -b alpha-13
 
 cd /tmp/rom/frameworks/base
 curl https://github.com/xenxynon/android_frameworks_base/commit/1043bdf54eff5f4807d83118e451937091a88963.patch | git am
