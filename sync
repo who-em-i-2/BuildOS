@@ -42,8 +42,8 @@ rm -rf /tmp/rom/hardware/xiaomi/megvii/*.bp
 # aosp clang 17
 git clone --depth=1 https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r498229 /tmp/rom/prebuilts/clang/host/linux-x86/aosp-clang
 
-rm -rf packages/apps/Launcher3
-git clone --depth=1 https://github.com/SuperiorOS/android_packages_apps_Launcher3 packages/apps/Launcher3 -b QPR3
+#rm -rf packages/apps/Launcher3
+#git clone --depth=1 https://github.com/SuperiorOS/android_packages_apps_Launcher3 packages/apps/Launcher3 -b QPR3
 
 #hals
 sed -i 's|QCOM_HARDWARE_VARIANT := msm8998|QCOM_HARDWARE_VARIANT := sdm660|' vendor/*/config/B*Qcom.mk
