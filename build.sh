@@ -5,7 +5,7 @@ lunch nad_lavender-user
 # export variable here
 export TZ=Asia/Kolkata
 export SELINUX_IGNORE_NEVERALLOWS=true
-export USE_GAPPS=true
+export USE_GAPPS=false
 
 build_gapps=0
 
