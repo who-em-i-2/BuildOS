@@ -22,5 +22,5 @@ export GAPPS_BUILD_TYPE=1
 }
 
 compile_plox () {
-mka bacon -j12
+mka bacon -j17
 }
