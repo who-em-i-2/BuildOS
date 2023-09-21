@@ -15,6 +15,6 @@ export WITH_GMS_MINIMAL=true
 }
 
 compile_plox () {
-mka bacon -j17
+mka bacon -j12
 #ls /tmp/rom/out/target/product/lav*/*2023*zip || make bacon -j8
 }
