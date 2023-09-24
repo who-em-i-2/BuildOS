@@ -14,5 +14,5 @@ export USE_GAPPS=false
 }
 
 compile_plox () {
-make nad -j17
+make nad -j$(nproc --all)
 }
