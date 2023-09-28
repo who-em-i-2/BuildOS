@@ -28,7 +28,7 @@ git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/kernel_xiaom
 
 # extra stuff
 git clone --depth=1 https://github.com/LineageOS/android_hardware_lineage_livedisplay hardware/lineage/livedisplay -b lineage-17.1
-git clone --depth=1 https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r498229 /tmp/rom/prebuilts/clang/host/linux-x86/custom-clang
+git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git /tmp/rom/prebuilts/clang/host/linux-x86/custom-clang
 
 . /tmp/ci/function
 tg "$rom_name source sync completed!
