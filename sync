@@ -43,16 +43,12 @@ git clone --depth=1 https://github.com/ArrowOS/android_hardware_qcom_display /tm
 git clone --depth=1 https://github.com/ArrowOS/android_hardware_qcom_audio /tmp/rom/hardware/qcom-caf/msm8998/audio -b arrow-11.0-caf-msm8998
 git clone --depth=1 https://github.com/ArrowOS/android_hardware_qcom_media /tmp/rom/hardware/qcom-caf/msm8998/media -b arrow-11.0-caf-msm8998
 
-rm -rf /tmp/rom/frameworks/base
+rm -rf /tmp/rom/frameworks/base /tmp/rom/vendor/lineage
 git clone --depth=1 https://github.com/Nub-XD/android_frameworks_base /tmp/rom/frameworks/base -b 11.0
+git clone --depth=1 https://github.com/Nub-XD/android_vendor /tmp/rom/vendor/lineage -b 11.0
 
 # patch
-cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/d0b35b0883feb7ccc4d4c9ad66e6409ebc3efad0.patch | git am
 cd /tmp/rom/vendor/qcom/opensource/power && curl https://github.com/Nub-XD/android_vendor_qcom_opensource_power/commit/8367d039bb345644be2b3d67d59f366e4ae18681.patch | git am
-
-git grep config_wallpaperMaxScale
-
-#bash /tmp/rom/vendor/nusantara/scripts/merge-aosp.sh security-10.0.0_r75
 
 . /tmp/ci/function
 tg "$rom_name source sync completed!
