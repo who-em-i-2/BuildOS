@@ -24,13 +24,14 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 # tree
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/device_lavender device/xiaomi/lavender -b 11
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/vendor_xiaomi_lavender vendor/xiaomi/lavender -b R
-git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/kernel_xiaomi_lavender kernel/xiaomi/lavender -b X9-Qti
+git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/kernel_xiaomi_lavender kernel/xiaomi/lavender -b snx
 
 # extra stuff
 #git clone --depth=1 https://github.com/LineageOS/android_hardware_lineage_livedisplay hardware/lineage/livedisplay -b lineage-17.1
 git clone --depth=1 https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r498229 /tmp/rom/prebuilts/clang/host/linux-x86/aosp-clang
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/XiaomiParts vendor/XiaomiParts -b R
 #git clone --depth=1 https://github.com/Nub-XD/platform_vendor_lawnchair vendor/lawnchair -b 11
+git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git /tmp/rom/prebuilts/clang/host/linux-x86/nexus-clang -b nexus-14
 
 # Gapps
 git clone --depth=1 https://gitlab.com/MindTheGapps/vendor_gapps vendor/gapps -b rho
@@ -49,6 +50,7 @@ git clone --depth=1 https://github.com/Nub-XD/android_vendor /tmp/rom/vendor/lin
 
 # patch
 cd /tmp/rom/vendor/qcom/opensource/power && curl https://github.com/Nub-XD/android_vendor_qcom_opensource_power/commit/8367d039bb345644be2b3d67d59f366e4ae18681.patch | git am
+cd /tmp/rom/kernel/xiaomi/lavender && curl https://github.com/ImSpiDy/kernel_xiaomi_lavender/commit/558b4a367f09d226d6f5d86c5bea694cd1eeea59.patch | git am
 
 . /tmp/ci/function
 tg "$rom_name source sync completed!
