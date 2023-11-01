@@ -5,12 +5,11 @@ lunch nad_lavender-user
 # export variable here
 export TZ=Asia/Kolkata
 export SELINUX_IGNORE_NEVERALLOWS=true
-export USE_GAPPS=true
 
 build_gapps=1
 
 exp_gapps () {
-export USE_GAPPS=false
+export USE_GAPPS=true
 }
 
 compile_plox () {
