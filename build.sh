@@ -6,12 +6,12 @@ lunch lineage_lavender-userdebug
 export TZ=Asia/Kolkata
 export SELINUX_IGNORE_NEVERALLOWS=true
 
-build_gapps=0
-export GAPPS=false
+build_gapps=1
+export GAPPS=true
 
 
 exp_gapps() {
-export GAPPS=true
+export GAPPS=false
 }
 
 compile_plox () {
