@@ -8,9 +8,9 @@ build_gapps=0
 export TZ=Asia/Kolkata
 export SELINUX_IGNORE_NEVERALLOWS=true
 
-exp_gapps () {
-export USE_GAPPS=false
-}
+#exp_gapps () {
+export USE_GAPPS=true
+#}
 
 compile_plox () {
 make nad -j$(nproc --all)
