@@ -16,7 +16,7 @@ bash ~/git_cookies.sh
 fi
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/ImSpiDy/android_manifest.git -b los --git-lfs  -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify -u https://github.com/crDroid-Revived/android.git -b 10.0 --git-lfs  -g default,-mips,-darwin,-notdefault
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
@@ -46,8 +46,8 @@ git clone --depth=1 https://gitlab.com/ImSpiDy/vendor_gapps vendor/gapps
 
 # Patch
 #cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/cbe3d4239cf9c09706aa5086715ae5eaf329558f.patch | git am
-#cd /tmp/rom/frameworks/base
-#curl https://github.com/Nub-XD/android_frameworks_base/commit/ebc89191b7bf6656eab876e181986aa2054542c5.patch | git am
+rm -rf /tmp/rom/frameworks/base
+git clone https://github.com/Nub-XD/android_frameworks_base /tmp/rom/frameworks/base -b 10.0
 #curl https://github.com/Nub-XD/android_frameworks_base/commit/19b3d416a4034659bc949bae828422b07f40f5a3.patch | git am
 #cd /tmp/rom/build/make && curl https://github.com/Nub-XD/android_build/commit/5d43d44a1fb462f0feca4f6deefe4a0e8a5af60a.patch | git am
 #cd /tmp/rom/vendor/qcom/opensource/power && curl https://github.com/Nub-XD/android_vendor_qcom_opensource_power/commit/9108d8ecd3763b7c0ea17ec6aecf62645b4fa175.patch | git am
