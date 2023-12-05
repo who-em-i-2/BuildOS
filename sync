@@ -27,10 +27,11 @@ git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/vendor_xiaom
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/kernel_xiaomi_lavender kernel/xiaomi/lavender -b snx
 
 # extra stuff
+git clone --depth=1 https://gitlab.com/ImSpiDy/vendor_gapps vendor/gapps
 git clone --depth=1 https://github.com/LineageOS/android_hardware_lineage_livedisplay hardware/lineage/livedisplay -b lineage-17.1
 git clone --depth=1 https://github.com/Nub-XD/android_packages_apps_Dirac packages/apps/Dirac -b 10
 git clone --depth=1 https://github.com/Nub-XD/platform_vendor_lawnchair vendor/lawnchair -b 10
-git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git /tmp/rom/prebuilts/clang/host/linux-x86/custom-clang -b nexus-14
+git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git prebuilts/clang/host/linux-x86/custom-clang -b nexus-14
 
 # soc hals
 rm -rf hardware/qcom-caf/msm8998/display hardware/qcom-caf/msm8998/audio hardware/qcom-caf/msm8998/media
@@ -38,12 +39,10 @@ git clone --depth=1 https://github.com/Nub-XD/android_hardware_qcom_display hard
 git clone --depth=1 https://github.com/Nub-XD/android_hardware_qcom_audio hardware/qcom-caf/msm8998/audio -b 10-msm8998
 git clone --depth=1 https://github.com/Nub-XD/android_hardware_qcom_media hardware/qcom-caf/msm8998/media -b 10-msm8998
 
-git clone --depth=1 https://gitlab.com/ImSpiDy/vendor_gapps vendor/gapps
-
 # Patch
-#cd /tmp/rom/vendor/lineage && curl https://github.com/Nub-XD/android_vendor/commit/cbe3d4239cf9c09706aa5086715ae5eaf329558f.patch | git am
-rm -rf frameworks/base
-git clone https://github.com/Nub-XD/android_frameworks_base frameworks/base -b 10.0
+rm -rf frameworks/base vendor/lineage
+git clone --depth=1 https://github.com/Nub-XD/android_vendor vendor/lineage -b 10.0
+git clone --depth=1 https://github.com/Nub-XD/android_frameworks_base frameworks/base -b 10.0
 
 # patch
 #cd /tmp/rom/packages/apps/ManagedProvisioning && curl https://github.com/Nub-XD/android_packages_apps_ManagedProvisioning/commit/b0aaec6871bea7a512984f1535ff4146aadb8049.patch | git am
