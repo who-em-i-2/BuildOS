@@ -1,17 +1,15 @@
 # Normal build steps
 . build/envsetup.sh
-lunch lineage_lavender-userdebug
+lunch lineage_lavender-user
+
+build_gapps=1
 
 # export variable here
 export TZ=Asia/Kolkata
 export SELINUX_IGNORE_NEVERALLOWS=true
 
-build_gapps=1
-export GAPPS=true
-
-
-exp_gapps() {
-export GAPPS=false
+exp_gapps () {
+export WITH_GMS=true
 }
 
 compile_plox () {

@@ -44,6 +44,8 @@ rm -rf frameworks/base vendor/lineage
 git clone --depth=1 https://github.com/Nub-XD/android_vendor vendor/lineage -b 10.0
 git clone --depth=1 https://github.com/Nub-XD/android_frameworks_base frameworks/base -b 10.0
 
+cd bionic && curl https://github.com/Nub-XD/android_bionic/commit/f7a243f71be692364174830cad07260c4734aafd.patch | git am
+
 # patch
 #cd /tmp/rom/packages/apps/ManagedProvisioning && curl https://github.com/Nub-XD/android_packages_apps_ManagedProvisioning/commit/b0aaec6871bea7a512984f1535ff4146aadb8049.patch | git am
 
