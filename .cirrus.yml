@@ -34,4 +34,4 @@ task:
     compile_script:
       - bash bu*
     upl_script:
-      - bash upl*
+      - bash echo "skip upload" #bash upl*

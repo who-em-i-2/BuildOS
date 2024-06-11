@@ -47,6 +47,8 @@ git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.4 kernel
 # extra
 git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git prebuilts/clang/host/linux-x86/custom-clang -b nexus-14
 
+git clone https://github.com/Nub-XD/vendor_lavender-priv_keys vendor/lineage-priv/keys
+
 git config --global user.name "$CIRRUS_REPO_OWNER"
 echo "switching account" && gh auth logout
 login_main # main id
