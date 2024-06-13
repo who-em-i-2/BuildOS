@@ -85,3 +85,5 @@ Time Took: $(($SECONDS / 60)) minute(s) and $(($SECONDS % 60)) second(s).
 Status: $progress"
 
 echo "$(($SECONDS / 60))" > /tmp/sync_time.txt
+
+neofetch
