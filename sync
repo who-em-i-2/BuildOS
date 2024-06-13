@@ -32,20 +32,26 @@ login_main # main id
 git config --global credential.helper '!gh auth git-credential'
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/ImSpiDy/android_manifest -b nad -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify -u https://github.com/LineageOS/android.git -b lineage-20.0 -g default,-mips,-darwin,-notdefault
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j15 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
 
 # tree
-git clone https://github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 10
-git clone https://github.com/ImSpiDy/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 10
-git clone --depth=1 https://github.com/ImSpiDy/vendor_lavender vendor/xiaomi/lavender -b 10
-git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 10
-git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.4 kernel/xiaomi/lavender -b snx
+git clone https://github.com/wHo-EM-i/device_xiaomi_lavender-old device/xiaomi/lavender -b T
+#git clone https://github.com/ImSpiDy/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 10
+git clone --depth=1 https://github.com/wHo-EM-i/android_vendor_xiaomi_lavender vendor/xiaomi/lavender -b T
+#git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 10
+git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.4 kernel/xiaomi/lavender -b X7-Qti
+
+# webview issue due to file lfs file format
+rm -rf /tmp/rom/external/chromium-webview/prebuilt/arm64/
+git clone --depth=1 https://gitlab.com/dib12/webview /tmp/rom/external/chromium-webview/prebuilt/arm64 -b 116.0.5845.92
+
+#cd /tmp/rom/system/libhidl && curl https://github.com/ArrowOS/android_system_libhidl/commit/fbdf10a33f546d202ae12b4b864177fea9faa998.patch | git am
 
 # extra
-git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git prebuilts/clang/host/linux-x86/custom-clang -b nexus-14
+#git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git prebuilts/clang/host/linux-x86/custom-clang -b nexus-14
 
 git clone https://github.com/Nub-XD/vendor_lavender-priv_keys vendor/lineage-priv/keys
 
