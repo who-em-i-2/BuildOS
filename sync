@@ -35,7 +35,7 @@ git config --global credential.helper '!gh auth git-credential'
 repo init --depth=1 --no-repo-verify -u https://github.com/LineageOS/android.git -b lineage-20.0 -g default,-mips,-darwin,-notdefault
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
-repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j15 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16
 
 # tree
 git clone https://github.com/wHo-EM-i/device_xiaomi_lavender-old device/xiaomi/lavender -b T
