@@ -1,7 +1,6 @@
 # Normal build steps
 . build/envsetup.sh
-lunch voltage_lavender-ap1a-user
-breakfast lavender user
+lunch lineage_lavender-ap1a-user
 
 build_gapps=0
 
@@ -20,5 +19,5 @@ export USE_GAPPS=false
 }
 
 compile_plox () {
-brunch lavender user
+make bacon -j16
 }
