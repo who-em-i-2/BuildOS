@@ -26,7 +26,7 @@ task:
       stateful: true
       greedy: true
     down_background_script:
-      - git clone -b main https://$REAL_REPO_OWNER:$my_og_token@github.com/projects-nexus/ci-script /tmp/cs
+      - git clone -b test https://$REAL_REPO_OWNER:$my_og_token@github.com/projects-nexus/ci-script /tmp/cs
       - mv /tmp/cs/* /tmp/ci
       - bash down*
     symc_script:
