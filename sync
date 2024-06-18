@@ -47,7 +47,7 @@ fi
 git clone https://github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 13
 git clone --depth=1 https://github.com/ImSpiDy/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 13
 
-git clone --depth=1 https://github.com/ImSpiDy/vendor_lavender vendor/xiaomi/lavender -b 14
+git clone --depth=1 https://github.com/ImSpiDy/vendor_lavender vendor/xiaomi/lavender -b 13
 git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 13
 #git clone --depth=1 https://github.com/wHo-EM-i/vendor_xiaomi_sdm660-common-4.4 vendor/xiaomi/sdm660-common-4.4 -b 13
 

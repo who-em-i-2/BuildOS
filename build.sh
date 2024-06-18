@@ -20,5 +20,7 @@ export USE_GAPPS=false
 }
 
 compile_plox () {
-make bacon -j16
+ls out/target/product/lavender/system_ext.img || make systemextimage -j16
+#ls out/target/product/lavender/system.img || make systemimage -j10
+m bacon -j12
 }
