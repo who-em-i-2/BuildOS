@@ -49,6 +49,8 @@ git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git prebuilts/c
 
 git clone https://github.com/Nub-XD/vendor_lavender-priv_keys vendor/lineage-priv/keys
 
+rm -rf vendor/lawnchair
+
 git config --global user.name "$CIRRUS_REPO_OWNER"
 echo "switching account" && gh auth logout
 login_main # main id
