@@ -11,6 +11,7 @@ env: # Environment variables to pass to all tasks
     s_core: "16"
     git_cookies: 0
     du_key: 0 # disable dev_upload
+    ext: "-eng"
     REAL_REPO_OWNER: "ENCRYPTED[!2d216e11d390b24637945eead7a7daa9d3ae3cb0907ae24c3763a05f725187ac5836f88fb3e6e71a180eea6f440ac023!]" # main id
 
 # store information about git here
