@@ -39,20 +39,15 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 
 rm -rf vendor/codeaurora/commonsys/packages/apps/SoundRecorder/Android.bp \
         vendor/nxp/opensource/halimpl/utils/Android.bp \
-        vendor/nxp/opensource/hidlimpl/Android.bp \
         vendor/nxp/opensource/halimpl/src/Android.bp \
+        vendor/nxp/opensource/hidlimpl/Android.bp \
         vendor/nxp/opensource/hidlimpl/1.*/Android.bp
-
-rm -rf vendor/reloaded; git clone --depth=1 https://github.com/Nub-XD/android_vendor vendor/reloaded -b q
-rm -rf frameworks/base; git clone --depth=1 https://github.com/Nub-XD/android_frameworks_base frameworks/base -b q
 
 rm -rf hardware/qcom/display vendor/qcom/opensource/audio-hal/primary-hal hardware/qcom/media
 git clone --depth=1 https://github.com/AOSPA/android_hardware_qcom_display hardware/qcom/display -b quartz-8998
 git clone --depth=1 https://github.com/AOSPA/android_hardware_qcom_audio vendor/qcom/opensource/audio-hal/primary-hal -b quartz-8998
 git clone --depth=1 https://github.com/AOSPA/android_hardware_qcom_media hardware/qcom/media -b quartz-8998
 
-rm -rf device/qcom/sepolicy-legacy-um
-git clone --depth=1 https://github.com/LineageOS/android_device_qcom_sepolicy device/qcom/sepolicy-legacy-um -b lineage-17.1-legacy-um
 git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git prebuilts/clang/host/linux-x86/custom-clang -b nexus-14
 
 # tree
