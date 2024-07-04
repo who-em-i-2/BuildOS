@@ -42,7 +42,6 @@ rm -rf vendor/codeaurora/commonsys/packages/apps/SoundRecorder/Android.bp \
         vendor/nxp/opensource/hidlimpl/Android.bp \
         vendor/nxp/opensource/halimpl/src/Android.bp \
         vendor/nxp/opensource/hidlimpl/1.*/Android.bp
-fi
 
 rm -rf vendor/reloaded; git clone --depth=1 https://github.com/Nub-XD/android_vendor vendor/reloaded -b q
 rm -rf frameworks/base; git clone --depth=1 https://github.com/Nub-XD/android_frameworks_base frameworks/base -b q
