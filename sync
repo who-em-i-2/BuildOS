@@ -32,23 +32,38 @@ login_main # main id
 git config --global credential.helper '!gh auth git-credential'
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/ImSpiDy/android_manifest -b nad -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify -u https://github.com/ImSpiDy/android_manifest -b rdc -g default,-mips,-darwin,-notdefault
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j15 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
 
-# tree
-git clone https://github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 10-4.19
-git clone https://github.com/ImSpiDy/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 10-4.19
-git clone --depth=1 https://github.com/ImSpiDy/vendor_lavender vendor/xiaomi/lavender -b 10-4.19
-git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 10-4.19
-git clone --depth=1 https://github.com/ImSpiDy/sonix_kernel_sdm660 kernel/xiaomi/lavender -b snx-qpnp
+rm -rf vendor/codeaurora/commonsys/packages/apps/SoundRecorder/Android.bp \
+        vendor/nxp/opensource/halimpl/utils/Android.bp \
+        vendor/nxp/opensource/hidlimpl/Android.bp \
+        vendor/nxp/opensource/halimpl/src/Android.bp \
+        vendor/nxp/opensource/hidlimpl/1.*/Android.bp
+fi
 
-# extra
+rm -rf vendor/reloaded; git clone --depth=1 https://github.com/Nub-XD/android_vendor vendor/reloaded -b q
+rm -rf frameworks/base; git clone --depth=1 https://github.com/Nub-XD/android_frameworks_base frameworks/base -b q
+
+rm -rf hardware/qcom/display vendor/qcom/opensource/audio-hal/primary-hal hardware/qcom/media
+git clone --depth=1 https://github.com/AOSPA/android_hardware_qcom_display hardware/qcom/display -b quartz-8998
+git clone --depth=1 https://github.com/AOSPA/android_hardware_qcom_audio vendor/qcom/opensource/audio-hal/primary-hal -b quartz-8998
+git clone --depth=1 https://github.com/AOSPA/android_hardware_qcom_media hardware/qcom/media -b quartz-8998
+
+rm -rf device/qcom/sepolicy-legacy-um
+git clone --depth=1 https://github.com/LineageOS/android_device_qcom_sepolicy device/qcom/sepolicy-legacy-um -b lineage-17.1-legacy-um
 git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git prebuilts/clang/host/linux-x86/custom-clang -b nexus-14
 
-git clone https://github.com/Nub-XD/vendor_lavender-priv_keys vendor/lineage-priv/keys
+# tree
+rm -rf device/xiaomi/lavender; git clone https://github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 10-CLO
+rm -rf device/xiaomi/sdm660-common; git clone https://github.com/ImSpiDy/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 10-CLO
+rm -rf vendor/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/vendor_lavender vendor/xiaomi/lavender -b 10
+rm -rf vendor/xiaomi/sdm660-common; git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 10
+rm -rf kernel/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.4 kernel/xiaomi/lavender -b snx
 
+# tree
 rm -rf vendor/lawnchair
 
 git config --global user.name "$CIRRUS_REPO_OWNER"

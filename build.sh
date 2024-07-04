@@ -1,6 +1,6 @@
 # Normal build steps
 . build/envsetup.sh
-lunch nad_lavender-userdebug
+lunch reloaded_lavender-userdebug
 
 build_gapps=0
 
@@ -13,5 +13,5 @@ export USE_GAPPS=false
 }
 
 compile_plox () {
-make nad -j16
+make reloaded -j16
 }
