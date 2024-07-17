@@ -43,6 +43,8 @@ rm -rf vendor/codeaurora/commonsys/packages/apps/SoundRecorder/Android.bp \
         vendor/nxp/opensource/hidlimpl/Android.bp \
         vendor/nxp/opensource/hidlimpl/1.*/Android.bp
 
+git clone --depth=1 https://github.com/ThankYouMario/proprietary_vendor_qcom_common vendor/qcom/common -b quartz
+
 rm -rf hardware/qcom/display vendor/qcom/opensource/audio-hal/primary-hal hardware/qcom/media
 git clone --depth=1 https://github.com/AOSPA/android_hardware_qcom_display hardware/qcom/display -b quartz-8998
 git clone --depth=1 https://github.com/AOSPA/android_hardware_qcom_audio vendor/qcom/opensource/audio-hal/primary-hal -b quartz-8998
