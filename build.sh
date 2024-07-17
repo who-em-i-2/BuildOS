@@ -13,5 +13,5 @@ export USE_GAPPS=false
 }
 
 compile_plox () {
-make reloaded -j16
+make reloaded
 }
