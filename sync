@@ -51,6 +51,7 @@ git clone --depth=1 https://github.com/AOSPA/android_hardware_qcom_audio vendor/
 git clone --depth=1 https://github.com/AOSPA/android_hardware_qcom_media hardware/qcom/media -b quartz-8998
 
 git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git prebuilts/clang/host/linux-x86/custom-clang -b nexus-14
+git clone --depth=1 https://github.com/Nub-XD/vendor_lavender-priv_keys vendor/lineage-priv/keys
 
 # tree
 rm -rf device/xiaomi/lavender; git clone https://github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 10-CLO
