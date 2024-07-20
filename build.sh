@@ -1,6 +1,6 @@
 # Normal build steps
 . build/envsetup.sh
-lunch reloaded_lavender-user
+lunch reloaded_lavender-userdebug
 
 build_gapps=0
 
