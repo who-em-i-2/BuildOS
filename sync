@@ -55,7 +55,7 @@ git clone --depth=1 https://github.com/Nub-XD/vendor_lavender-priv_keys vendor/l
 
 # tree
 rm -rf device/xiaomi/lavender; git clone https://github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 10-CLO
-rm -rf device/xiaomi/sdm660-common; git clone https://github.com/ImSpiDy/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 10-CLO
+rm -rf device/xiaomi/sdm660-common; git clone https://github.com/ImSpiDy/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 10
 rm -rf vendor/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/vendor_lavender vendor/xiaomi/lavender -b 10
 rm -rf vendor/xiaomi/sdm660-common; git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 10
 rm -rf kernel/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.4 kernel/xiaomi/lavender -b snx
