@@ -45,6 +45,7 @@ RUN sudo apt-get install -y \
     p7zip \
     pigz \
     ccache \
+    zram-config \
     jq \
     aria2 \
     gh \
@@ -74,11 +75,22 @@ RUN sudo apt-get install -y \
     python3-pip && \
     update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
+RUN mkdir /var/run/sshd
+
+RUN echo 'root:root' | chpasswd
+
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
+RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+
 # Setup Android Build Environment
 RUN \
 git clone https://github.com/akhilnarang/scripts.git /tmp/scripts \
 && sudo bash /tmp/scripts/setup/android_build_env.sh \
 && rm -rf /tmp/scripts
+
+RUN echo 'sudo fallocate -l 16G /tmp/swapfile && sudo chmod 600 /tmp/swapfile && sudo mkswap /tmp/swapfile && sudo swapon /tmp/swapfile && free -h'  > /etc/profile.d/welcome.sh
+CMD ["/usr/sbin/sshd", "-D"]
 
 # Run bash
 CMD ["bash"]
