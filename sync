@@ -74,9 +74,9 @@ else
 sed -i 's|QCOM_HARDWARE_VARIANT := sdm660|QCOM_HARDWARE_VARIANT := msm8998|' vendor/*/config/B*Qcom.mk
 fi
 rm -rf hardware/qcom-caf/sdm660/audio hardware/qcom-caf/sdm660/media
-#rm -rf hardware/qcom-caf/sdm660/display
+rm -rf hardware/qcom-caf/sdm660/display
 git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_audio hardware/qcom-caf/sdm660/audio -b 13-caf-sdm660
-#git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_display hardware/qcom-caf/sdm660/display -b 13-caf-sdm660
+git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_display hardware/qcom-caf/sdm660/display -b 13-caf_4.19
 git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hardware/qcom-caf/sdm660/media -b 13-caf-sdm660
 
 git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_camera hardware/qcom-caf/sdm660/camera -b sdm660-4.19-11.2.1.r1

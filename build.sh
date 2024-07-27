@@ -21,10 +21,9 @@ export USE_GAPPS=false
 }
 
 compile_plox () {
-#ls out/target/product/lavender/system_ext.img || make systemextimage -j16
 #ls out/target/product/lavender/system.img || make systemimage -j10
 #m api-stubs-docs -j7 || tg "api-stubs-docs failed"
-tg "Started api-stubs-docs compilation"
+#tg "Started api-stubs-docs compilation"
 m api-stubs-docs-non-updatable -j7 || tg "api-stubs-docs-non-updatable failed"
 #m system-api-stubs-docs -j7 || tg "system-api-stubs-docs failed"
 m system-api-stubs-docs-non-updatable -j7 || tg "system-api-stubs-docs-non-updatable failed"
@@ -34,6 +33,6 @@ m test-api-stubs-docs-non-updatable -j7 || tg "test-api-stubs-docs failed"
 #m module-lib-api-stubs-docs-non-updatable -j7 || tg "module-lib-api-stubs-docs-non-updatable failed"
 #m module-lib-api-stubs-docs -j 7 || tg "module-lib-api-stubs-docs failed"
 #m hwbinder-stubs-docs -j 7 || tg "hwbinder-stubs-docs failed"
-tg "Now starting actual build"
-m bacon -j12
+#tg "Now starting actual build"
+m bacon -j7
 }
