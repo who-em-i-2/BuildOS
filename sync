@@ -63,6 +63,10 @@ rm -rf kernel/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/ke
 # tree
 rm -rf vendor/lawnchair
 
+cd build/soong
+curl https://github.com/AOSPA/android_build_soong/commit/836f9c45d042e3d197b505a08e52b8107bdf88b0.patch | git am
+cd -
+
 git config --global user.name "$CIRRUS_REPO_OWNER"
 echo "switching account" && gh auth logout
 login_main # main id
