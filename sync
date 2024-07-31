@@ -52,6 +52,7 @@ git clone --depth=1 https://github.com/AOSPA/android_hardware_qcom_media hardwar
 
 git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git prebuilts/clang/host/linux-x86/custom-clang -b nexus-14
 rm -rf vendor/lineage-priv/keys; git clone --depth=1 https://github.com/Nub-XD/vendor_lavender-priv_keys vendor/lineage-priv/keys
+rm -rf device/qcom/sepolicy-legacy-um; git clone https://github.com/NusantaraProject-ROM/android_device_qcom_sepolicy-legacy-um device/qcom/sepolicy-legacy-um -b 10
 
 # tree
 #rm -rf device/xiaomi/lavender; git clone https://github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 10-CLO
