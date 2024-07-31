@@ -43,7 +43,7 @@ rm -rf vendor/codeaurora/commonsys/packages/apps/SoundRecorder/Android.bp \
         vendor/nxp/opensource/hidlimpl/Android.bp \
         vendor/nxp/opensource/hidlimpl/1.*/Android.bp
 
-git clone --depth=1 https://github.com/ThankYouMario/proprietary_vendor_qcom_common vendor/qcom/common -b quartz
+#git clone --depth=1 https://github.com/ThankYouMario/proprietary_vendor_qcom_common vendor/qcom/common -b quartz
 
 rm -rf hardware/qcom/display vendor/qcom/opensource/audio-hal/primary-hal hardware/qcom/media
 git clone --depth=1 https://github.com/AOSPA/android_hardware_qcom_display hardware/qcom/display -b quartz-8998
@@ -54,11 +54,15 @@ git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git prebuilts/c
 rm -rf vendor/lineage-priv/keys; git clone --depth=1 https://github.com/Nub-XD/vendor_lavender-priv_keys vendor/lineage-priv/keys
 
 # tree
-rm -rf device/xiaomi/lavender; git clone https://github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 10-CLO
-rm -rf device/xiaomi/sdm660-common; git clone https://github.com/ImSpiDy/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 10
-rm -rf vendor/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/vendor_lavender vendor/xiaomi/lavender -b 10
-rm -rf vendor/xiaomi/sdm660-common; git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 10
-rm -rf kernel/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.4 kernel/xiaomi/lavender -b snx
+#rm -rf device/xiaomi/lavender; git clone https://github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 10-CLO
+#rm -rf device/xiaomi/sdm660-common; git clone https://github.com/ImSpiDy/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 10
+#rm -rf vendor/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/vendor_lavender vendor/xiaomi/lavender -b 10
+#rm -rf vendor/xiaomi/sdm660-common; git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 10
+#rm -rf kernel/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.4 kernel/xiaomi/lavender -b snx
+
+rm -rf device/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 10
+rm -rf vendor/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_lavender vendor/xiaomi/lavender -b 10
+rm -rf kernel/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender kernel/xiaomi/lavender -b snx
 
 # tree
 rm -rf vendor/lawnchair
