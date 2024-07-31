@@ -64,7 +64,7 @@ rm -rf kernel/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/ke
 #rm -rf vendor/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_lavender vendor/xiaomi/lavender -b 10
 
 # tree
-rm -rf vendor/lawnchair
+rm -rf vendor/lawnchair vendor/qcom/opensource/power
 
 cd build/soong
 curl https://github.com/AOSPA/android_build_soong/commit/836f9c45d042e3d197b505a08e52b8107bdf88b0.patch | git am
