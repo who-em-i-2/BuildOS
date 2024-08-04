@@ -30,5 +30,5 @@ compile_plox () {
 #m module-lib-api-stubs-docs-non-updatable -j7 || tg "module-lib-api-stubs-docs-non-updatable failed"
 
 #tg "Now starting actual build"
-m bacon -j12
+m bacon -j16
 }
