@@ -42,7 +42,7 @@ git clone --depth=1 https://github.com/ImSpiDy/device_xiaomi_lavender-4.4 device
 #git clone https://github.com/ImSpiDy/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 10
 git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_lavender-4.4 vendor/xiaomi/lavender -b 10R
 #git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 10
-git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.4 kernel/xiaomi/lavender -b snx
+git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.4 kernel/xiaomi/lavender -b snx-ksu
 
 # extra
 git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang.git prebuilts/clang/host/linux-x86/custom-clang -b nexus-14
