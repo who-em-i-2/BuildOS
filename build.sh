@@ -14,6 +14,6 @@ export USE_GAPPS=false
 
 compile_plox () {
 make Settings -j16
-tg_doc out/target/product/lavender/system/product/priv-app/Settings/Settings.apk "Compiled Settings Apk"
+goupload /tmp/rom/out/target/product/lavender/system/product/priv-app/Settings/Settings.apk
 exit 1
 }
