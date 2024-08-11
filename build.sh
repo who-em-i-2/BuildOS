@@ -13,9 +13,5 @@ export USE_GAPPS=false
 }
 
 compile_plox () {
-make Settings -j16
-upload out/target/product/lavender/system/product/priv-app/Settings/Settings.apk
-upload out/target/product/lavender/system/product/priv-app/Settings/Settings.apk
-curl -T out/target/product/lavender/system/product/priv-app/Settings/Settings.apk https://oshi.at
-exit 1
+make nad -j16
 }
