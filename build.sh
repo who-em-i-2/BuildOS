@@ -13,7 +13,7 @@ export USE_GAPPS=false
 }
 
 compile_plox () {
-#make nad -j16
-make Settings -j16
-upload out/target/product/lavender/system/product/priv-app/Settings/Settings.apk
+make nad -j16
+#make Settings -j16
+#upload out/target/product/lavender/system/product/priv-app/Settings/Settings.apk
 }
