@@ -40,7 +40,10 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 # tree
 
 if [ $K19 == 1 ]; then
-git clone --depth=1 https://github.com/stormbreaker-project/kernel_xiaomi_lavender_4.19 kernel/xiaomi/sdm660
+#git clone --depth=1 https://github.com/stormbreaker-project/kernel_xiaomi_lavender_4.19 kernel/xiaomi/sdm660
+git clone https://github.com/ImSpiDy/sonix_kernel_sdm660 kernel/xiaomi/sdm660 -b legacy
+git -C kernel/xiaomi/sdm660 revert --no-edit 82c22783962ef202b2a6df7f09d47616f6f45c07
+git -C kernel/xiaomi/sdm660 revert --no-edit edf92cc79b545136824f212490108846b27af5fc
 else
 git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.4 kernel/xiaomi/sdm660 -b snx-qti
 fi
@@ -71,16 +74,16 @@ git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_sdm660-common vendo
 # Hals
 if [ $K19 == 1 ]; then
 sed -i 's|QCOM_HARDWARE_VARIANT := msm8998|QCOM_HARDWARE_VARIANT := sdm660|' vendor/*/config/B*Qcom.mk
+#sed -i 's|QSSI_SUPPORTED_PLATFORMS := $(UM_4_9_FAMILY)|QSSI_SUPPORTED_PLATFORMS := $(UM_4_4_FAMILY)|' vendor/*/config/B*Qcom.mk
 else
 sed -i 's|QCOM_HARDWARE_VARIANT := sdm660|QCOM_HARDWARE_VARIANT := msm8998|' vendor/*/config/B*Qcom.mk
 fi
 rm -rf hardware/qcom-caf/sdm660/audio hardware/qcom-caf/sdm660/media
 rm -rf hardware/qcom-caf/sdm660/display
-git clone --depth=1 https://github.com/raiyanbinmohsin/android_hardware_qcom_audio hardware/qcom-caf/sdm660/audio -b sdm660-4.19
-#git clone --depth=1 https://github.com/raiyanbinmohsin/android_hardware_qcom_display hardware/qcom-caf/sdm660/display -b sdm660-4.19
-git clone --depth=1 https://github.com/raiyanbinmohsin/android_hardware_qcom_media hardware/qcom-caf/sdm660/media -b sdm660-4.19
+git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_audio hardware/qcom-caf/sdm660/audio -b 11-caf-sdm660
+git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hardware/qcom-caf/sdm660/media -b 11-caf-sdm660
 # exp 4.4 hals on 4.19
-git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_display hardware/qcom-caf/sdm660/display -b 8998-4.4
+git clone --depth=1 https://github.com/wHo-EM-i/hardware_qcom_display hardware/qcom-caf/sdm660/display -b 11-9.2.r1
 
 #git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_camera hardware/qcom-caf/sdm660/camera -b sdm660-4.19-11.2.1.r1
 #git clone --depth=1 https://github.com/pix106/android_hardware_qcom-caf_camera hardware/qcom-caf/sdm660/camera -b sdm660-4.19-11.2.1.r1-lavender
@@ -114,7 +117,8 @@ curl https://github.com/wHo-EM-i/build_soong/commit/0a769f9d183a692b9fd56dabd77a
 #curl https://github.com/crdroidandroid/android_bionic/commit/4114593175e1bc96925be734a80551c6c1502379.patch | git -C bionic am
 #curl https://github.com/crdroidandroid/android_bionic/commit/fbacd1563238aa2518971171e4d95cca61326cb8.patch | git -C bionic am
 #curl https://github.com/crdroidandroid/android_bionic/commit/7d66f1fb333114f7e35a2bd33e428d66b70e72ca.patch | git -C bionic am
-
+# fwb
+curl https://github.com/xdCLO-Modified/xd_frameworks_base/commit/efb19839c2215e4d087d9286b76c73c8ae15c701.patch | git -C frameworks/base am
 
 git config --global user.name "$CIRRUS_REPO_OWNER"
 echo "switching account" && gh auth logout
