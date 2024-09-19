@@ -1,7 +1,6 @@
 # Normal build steps
 . build/envsetup.sh
-lunch voltage_lavender-user
-lunch voltage_lavender-ap3a-user
+lunch aospa_lavender-user
 
 build_gapps=0
 
@@ -23,5 +22,6 @@ export USE_GAPPS=false
 
 compile_plox () {
 #ls out/target/product/lavender/system.img || make systemimage -j10
-m bacon -j16
+#m bacon -j16
+./r* lavender -t user
 }
