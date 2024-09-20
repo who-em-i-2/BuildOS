@@ -35,7 +35,7 @@ git config --global credential.helper '!gh auth git-credential'
 repo init --depth=1 --no-repo-verify -u https://github.com/Aospa-Ext/manifest -b unity -g default,-mips,-darwin,-notdefault
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
-repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 
 # missed bringup
 #curl https://github.com/VoltageOS/hardware_google_pixel/commit/5723b06faf36c6a2c7c27a35ac43e30e51d8eb23.patch | git -C hardware/google/pixel am
@@ -55,8 +55,6 @@ git clone --depth=1 https://github.com/ImSpiDy/device_xiaomi_sdm660-common devic
 
 git clone --depth=1 https://github.com/ImSpiDy/vendor_lavender vendor/xiaomi/lavender -b uvite
 git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b uvite
-
-git clone --depth=1 https://github.com/ArrowOS/android_external_tinyxml external/tinyxml
 
 #rm -rf hardware/xiaomi
 #git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
@@ -113,11 +111,11 @@ git clone --depth=1 https://github.com/Los-Ext/vendor_lineage-priv_keys vendor/l
 #echo "-include vendor/lineage-priv/keys/keys.mk" >> vendor/*/config/common.mk
 
 # vanilla
-sed -i 's/WITH_GMS := true/WITH_GMS := false/g' device/xiaomi/lavender/aospa_lavender.mk
-sed -i 's/TARGET_DISABLES_GMS := false/TARGET_DISABLES_GMS := true/g' device/xiaomi/lavender/aospa_lavender.mk
+#sed -i 's/WITH_GMS := true/WITH_GMS := false/g' device/xiaomi/lavender/aospa_lavender.mk
+#sed -i 's/TARGET_DISABLES_GMS := false/TARGET_DISABLES_GMS := true/g' device/xiaomi/lavender/aospa_lavender.mk
 # gapps
-#sed -i 's/WITH_GMS := false/WITH_GMS := true/g' device/xiaomi/lavender/aospa_lavender.mk
-#sed -i 's/TARGET_DISABLES_GMS := true/TARGET_DISABLES_GMS := false/g' device/xiaomi/lavender/aospa_lavender.mk
+sed -i 's/WITH_GMS := false/WITH_GMS := true/g' device/xiaomi/lavender/aospa_lavender.mk
+sed -i 's/TARGET_DISABLES_GMS := true/TARGET_DISABLES_GMS := false/g' device/xiaomi/lavender/aospa_lavender.mk
 
 git config --global user.name "$CIRRUS_REPO_OWNER"
 echo "switching account" && gh auth logout
