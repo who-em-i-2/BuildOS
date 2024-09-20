@@ -32,10 +32,11 @@ login_main # main id
 git config --global credential.helper '!gh auth git-credential'
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/Aospa-Ext/manifest -b unity -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify -u https://github.com/AOSPA/manifest -b vauxite --git-lfs -g default,-mips,-darwin,-notdefault
+#git clone https://github.com/ImSpiDy/manifest.git --depth 1 -b vauxite .repo/local_manifests
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
-repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
 
 # missed bringup
 #curl https://github.com/VoltageOS/hardware_google_pixel/commit/5723b06faf36c6a2c7c27a35ac43e30e51d8eb23.patch | git -C hardware/google/pixel am
@@ -43,20 +44,18 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 # tree
 git clone --depth=1 https://github.com/ArrowOS/android_external_tinyxml external/tinyxml
 if [ $K19 == 1 ]; then
-git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_sdm660 kernel/msm-4.19 -b 13-Retro
+git clone --depth=1 https://github.com/ImSpiDy/sonix_kernel_sdm660 kernel/msm-4.19  -b vauxite
 mv -f kernel/msm-4.19/Androidbp kernel/msm-4.19/Android.bp
 mv -f kernel/msm-4.19/techpack/audio/Androidbp kernel/msm-4.19/techpack/audio/Android.bp
 else
 git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.4 kernel/xiaomi/sdm660 -b snx-qti
 git clone --depth=1 https://github.com/wHo-EM-i/vendor_xiaomi_sdm660-common-4.4 vendor/xiaomi/sdm660-common-4.4 -b 14
 fi
-git clone https://github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b uvite
-git clone --depth=1 https://github.com/ImSpiDy/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b uvite
+git clone https://github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b vauxite
+git clone --depth=1 https://github.com/ImSpiDy/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b vauxite
 
 git clone --depth=1 https://github.com/ImSpiDy/vendor_lavender vendor/xiaomi/lavender -b uvite
-git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b uvite
-
-git clone --depth=1 https://github.com/ArrowOS/android_external_tinyxml external/tinyxml
+git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b vauxite
 
 #rm -rf hardware/xiaomi
 #git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
@@ -80,7 +79,7 @@ git clone --depth=1 https://gitlab.com/Project-Nexus/nexus-clang prebuilts/clang
 if [ $K19 == 1 ]; then
 rm -rf vendor/qcom/opensource/audio-hal/primary-hal hardware/qcom/display hardware/qcom/media
 git clone --depth=1 https://github.com/Nub-XD/android_hardware_qcom_audio vendor/qcom/opensource/audio-hal/primary-hal -b uvite
-git clone --depth=1 https://github.com/Nub-XD/android_hardware_qcom_display hardware/qcom/display -b uvite
+git clone --depth=1 https://github.com/wHo-EM-i/hardware_qcom_display hardware/qcom/display -b vauxite
 git clone --depth=1 https://github.com/Nub-XD/android_hardware_qcom_media hardware/qcom/media -b uvite
 #git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_camera hardware/qcom-caf/sdm660/camera -b sdm660-12.2.1.r1
 else
@@ -105,6 +104,8 @@ fi
 #curl https://github.com/wHo-EM-i/build_soong/commit/00e17b67081c0f2f3558f6fd33e034fd504b209b.patch | git -C build/soong am
 #curl https://github.com/wHo-EM-i/build_soong/commit/56fdbc1cf940dbd37bbb6eae51b61acd888ecfd3.patch | git -C build/soong am
 #curl https://github.com/wHo-EM-i/build_soong/commit/77af04630dad56b85d55f49c5cdd69a0aff7e6b0.patch | git -C build/soong am
+curl https://github.com/VoltageOS-staging/build_soong/commit/cf37cb71e31d74d219381a4f685c9a7389139d4d.patch | git -C build/soong am
+
 
 # keys
 rm -rf vendor/lineage-priv/keys vendor/voltage-priv/keys
@@ -113,8 +114,8 @@ git clone --depth=1 https://github.com/Los-Ext/vendor_lineage-priv_keys vendor/l
 #echo "-include vendor/lineage-priv/keys/keys.mk" >> vendor/*/config/common.mk
 
 # vanilla
-sed -i 's/WITH_GMS := true/WITH_GMS := false/g' device/xiaomi/lavender/aospa_lavender.mk
-sed -i 's/TARGET_DISABLES_GMS := false/TARGET_DISABLES_GMS := true/g' device/xiaomi/lavender/aospa_lavender.mk
+#sed -i 's/WITH_GMS := true/WITH_GMS := false/g' device/xiaomi/lavender/aospa_lavender.mk
+#sed -i 's/TARGET_DISABLES_GMS := false/TARGET_DISABLES_GMS := true/g' device/xiaomi/lavender/aospa_lavender.mk
 # gapps
 #sed -i 's/WITH_GMS := false/WITH_GMS := true/g' device/xiaomi/lavender/aospa_lavender.mk
 #sed -i 's/TARGET_DISABLES_GMS := true/TARGET_DISABLES_GMS := false/g' device/xiaomi/lavender/aospa_lavender.mk
