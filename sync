@@ -3,6 +3,16 @@
 mkdir -p /tmp/rom # Where to sync source
 cd /tmp/rom
 
+# wait for function script to clone
+while true; do
+    if [ -f "/tmp/ci/function" ]; then
+        . /tmp/ci/function
+        break
+    else
+        sleep 1
+    fi
+done
+
 SECONDS=0
 
 if [[ $git_cookies != 0 ]]; then
@@ -15,7 +25,6 @@ bash ~/git_cookies.sh
 
 fi
 
-git config --global user.email "SpiDy2713@gmail.com"
 git config --global user.name "ImSpiDy"
 echo "switching account"
 gh config set -h github.com
