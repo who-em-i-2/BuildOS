@@ -32,28 +32,30 @@ login_main # main id
 git config --global credential.helper '!gh auth git-credential'
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/VoltageOS/manifest.git -b 13 --git-lfs -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify -u https://github.com/DerpFest-AOSP/manifest.git -b 13 --git-lfs -g default,-mips,-darwin,-notdefault
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
-repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j16 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+#exit 0
 
 # tree
 
 if [ $K19 == 1 ]; then
-git clone --depth=1 https://github.com/ImSpiDy/sonix_kernel_sdm660 kernel/xiaomi/sdm660
+git clone --single-branch https://github.com/ImSpiDy/sonix_kernel_sdm660 kernel/xiaomi/sdm660 && git -C kernel/xiaomi/sdm660 revert --no-edit 4cbc441be5366fdc5e7cc09c989df617c9c162d0
 else
 git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.4 kernel/xiaomi/sdm660 -b snx-qti
 fi
 
 git clone https://github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 13
-git -C device/xiaomi/lavender revert --no-edit c4be758e22889a9f79152cb65869cce9617a4036
-git -C device/xiaomi/lavender revert --no-edit e99ab4426a679cfd117c6eeb7ec36769b18ae71e
+#git -C device/xiaomi/lavender revert --no-edit c4be758e22889a9f79152cb65869cce9617a4036
+#git -C device/xiaomi/lavender revert --no-edit e99ab4426a679cfd117c6eeb7ec36769b18ae71e
+git -C device/xiaomi/lavender revert --no-edit 7fc0f37
 
 git clone --depth=1 https://github.com/ImSpiDy/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 13
 
-git clone --depth=1 https://github.com/ImSpiDy/vendor_lavender vendor/xiaomi/lavender -b 13
-git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 13
-#git clone --depth=1 https://github.com/wHo-EM-i/vendor_xiaomi_sdm660-common-4.4 vendor/xiaomi/sdm660-common-4.4 -b 13
+git clone --depth=1 --single-branch https://github.com/ImSpiDy/vendor_lavender vendor/xiaomi/lavender -b 13
+git clone --depth=1 --single-branch https://github.com/ImSpiDy/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 13
+#git clone --depth=1 --single-branch https://github.com/wHo-EM-i/vendor_xiaomi_sdm660-common-4.4 vendor/xiaomi/sdm660-common-4.4 -b 13
 
 rm -rf hardware/xiaomi
 git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi hardware/xiaomi -b arrow-13.1
@@ -65,8 +67,8 @@ git clone --depth=1 https://github.com/arrowos-devices/android_hardware_xiaomi h
 rm -rf hardware/xiaomi/megvii/*.bp
 
 # patch
-rm -rf /tmp/rom/bionic
-git clone --depth=1 https://github.com/wHo-EM-i/bionic -b vos13
+#rm -rf /tmp/rom/bionic
+#git clone --depth=1 https://github.com/wHo-EM-i/bionic -b vos13
 # soong patch
 curl https://github.com/wHo-EM-i/build_soong/commit/1f4a7bed507a34ca6e46a5ab5b4017899133cab0.patch | git -C build/soong am
 # build_make
@@ -84,7 +86,7 @@ fi
 rm -rf hardware/qcom-caf/sdm660/audio hardware/qcom-caf/sdm660/media
 rm -rf hardware/qcom-caf/sdm660/display
 git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_audio hardware/qcom-caf/sdm660/audio -b 13-caf-sdm660
-git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_display hardware/qcom-caf/sdm660/display -b 13-caf_4.19
+git clone --depth=1 https://github.com/wHo-EM-i/hardware_qcom_display hardware/qcom-caf/sdm660/display -b 15-9.2.r1
 git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hardware/qcom-caf/sdm660/media -b 13-caf-sdm660
 
 git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_camera hardware/qcom-caf/sdm660/camera -b sdm660-4.19-11.2.1.r1
@@ -98,6 +100,9 @@ git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_camera har
 #git clone --depth=1 https://github.com/Los-Ext/vendor_lineage-priv_keys vendor/lineage-priv/keys
 git clone https://github.com/Nub-XD/vendor_lavender-priv_keys vendor/lineage-priv/keys
 echo "-include vendor/lineage-priv/keys/keys.mk" >> vendor/*/config/common.mk
+
+# fwb
+curl https://github.com/xdCLO-Modified/xd_frameworks_base/commit/efb19839c2215e4d087d9286b76c73c8ae15c701.patch | git -C frameworks/base am
 
 git config --global user.name "$CIRRUS_REPO_OWNER"
 echo "switching account" && gh auth logout
