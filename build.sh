@@ -1,6 +1,6 @@
 # Normal build steps
 . build/envsetup.sh
-lunch lineage_lavender-userdebug
+lunch xdroid_lavender-eng
 
 build_gapps=0
 
@@ -30,5 +30,5 @@ compile_plox () {
 #m module-lib-api-stubs-docs-non-updatable -j7 || tg "module-lib-api-stubs-docs-non-updatable failed"
 
 #tg "Now starting actual build"
-m bacon -j16
+make xd -j16
 }
