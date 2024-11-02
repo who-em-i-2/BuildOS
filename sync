@@ -72,7 +72,7 @@ rm -rf hardware/xiaomi/megvii/*.bp
 # soong patch
 curl https://github.com/wHo-EM-i/build_soong/commit/1f4a7bed507a34ca6e46a5ab5b4017899133cab0.patch | git -C build/soong am
 # build_make
-curl https://github.com/VoltageOS/build/commit/765c1bfe16e78fe8aec256e507d4dc1445187f5e.patch | git -C build/make am
+#curl https://github.com/VoltageOS/build/commit/765c1bfe16e78fe8aec256e507d4dc1445187f5e.patch | git -C build/make am
 
 # clang 17
 #git clone --depth=1 https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r498229 prebuilts/clang/host/linux-x86/aosp-clang
@@ -102,7 +102,18 @@ git clone https://github.com/Nub-XD/vendor_lavender-priv_keys vendor/lineage-pri
 echo "-include vendor/lineage-priv/keys/keys.mk" >> vendor/*/config/common.mk
 
 # fwb
-curl https://github.com/xdCLO-Modified/xd_frameworks_base/commit/efb19839c2215e4d087d9286b76c73c8ae15c701.patch | git -C frameworks/base am
+#curl https://github.com/xdCLO-Modified/xd_frameworks_base/commit/efb19839c2215e4d087d9286b76c73c8ae15c701.patch | git -C frameworks/base am
+rm -rf frameworks/base
+git clone --depth=1 https://github.com/JunkYard-XD/frameworks_base-13 frameworks/base -b 13
+
+rm -rf bionic
+git clone --depth=1 https://github.com/JunkYard-XD/android_bionic bionic -b derp
+
+rm -rf frameworks/native
+git clone --depth=1 https://github.com/JunkYard-XD/frameworks_native-13 frameworks/native -b 13
+
+rm -rf build/make
+git clone https://github.com/JunkYard-XD/build-13 build/make -b 13
 
 git config --global user.name "$CIRRUS_REPO_OWNER"
 echo "switching account" && gh auth logout
