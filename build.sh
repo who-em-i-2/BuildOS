@@ -127,12 +127,12 @@ upload *.zip && exit 0
 
 compile_plox () {
 # part 1
-#get_system_ext
-#get_system
-#get_product
-get_vendor
-get_odm
-get_boot
+get_system_ext
+get_system
+get_product
+#get_vendor
+#get_odm
+#get_boot
 # part2 (choose manual zip or bacon if its not in parts)
 final_zip
 #mka derp

@@ -113,7 +113,10 @@ rm -rf frameworks/native
 git clone --depth=1 https://github.com/JunkYard-XD/frameworks_native-13 frameworks/native -b 13
 
 rm -rf build/make
-git clone https://github.com/JunkYard-XD/build-13 build/make -b 13
+git clone --depth=1 https://github.com/JunkYard-XD/build-13 build/make -b 13
+
+rm -rf system/security
+git clone --depth=1 https://github.com/JunkYard-XD/system_security system/security -b 13
 
 git config --global user.name "$CIRRUS_REPO_OWNER"
 echo "switching account" && gh auth logout
