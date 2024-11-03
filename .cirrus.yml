@@ -12,6 +12,7 @@ env: # Environment variables to pass to all tasks
     REAL_REPO_OWNER: "ENCRYPTED[!2d216e11d390b24637945eead7a7daa9d3ae3cb0907ae24c3763a05f725187ac5836f88fb3e6e71a180eea6f440ac023!]" # main id
     K19: 1 # kernel 4.19 or 4.4
     cc_lvl: "-3" # ccache com lvl
+    part_id: "000" # to ensure all parts are in sync
 
 # store information about git here
     gmail: ehteshammalik18998@gmail.com
