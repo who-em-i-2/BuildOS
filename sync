@@ -118,6 +118,8 @@ git clone --depth=1 https://github.com/JunkYard-XD/build-13 build/make -b 13
 rm -rf system/security
 git clone --depth=1 https://github.com/JunkYard-XD/system_security system/security -b 13
 
+curl https://github.com/ArrowOS-T/android_external_boringssl/commit/ed6c019b3eea695b26ec1d7eb243772d0d7f9460.patch | git -C external/boringssl am
+
 git config --global user.name "$CIRRUS_REPO_OWNER"
 echo "switching account" && gh auth logout
 login_main # main id
