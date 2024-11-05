@@ -85,11 +85,20 @@ simg2img product.img product.img.raw
 simg2img odm.img odm.img.raw
 simg2img system_ext.img system_ext.img.raw
 echo "- Map dynamic partition"
-echo "resize system $(du -sb $PWD/system.img.raw  | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
-echo "resize vendor $(du -sb $PWD/vendor.img.raw  | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
-echo "resize product $(du -sb $PWD/product.img.raw  | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
-echo "resize odm $(du -sb $PWD/odm.img.raw  | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
-echo "resize system_ext $(du -sb $PWD/system_ext.img.raw  | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+ls *.raw && RAW=1 || RAW=0
+if [ $RAW == 1 ]; then
+echo "resize system $(du -sb $PWD/system.img.raw | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+echo "resize vendor $(du -sb $PWD/vendor.img.raw | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+echo "resize product $(du -sb $PWD/product.img.raw | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+echo "resize odm $(du -sb $PWD/odm.img.raw | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+echo "resize system_ext $(du -sb $PWD/system_ext.img.raw | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+else
+echo "resize system $(du -sb $PWD/system.img | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+echo "resize vendor $(du -sb $PWD/vendor.img | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+echo "resize product $(du -sb $PWD/product.img | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+echo "resize odm $(du -sb $PWD/odm.img | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+echo "resize system_ext $(du -sb $PWD/system_ext.img | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+fi
 echo "- Print dynamic_partitions_op_list"
 cat dynamic_partitions_op_list
 echo "- Cleanup raw images after collecting sizes for dynamic partition"
@@ -109,11 +118,11 @@ python3 $bin/img2sdat.py system_ext.img -o /tmp/ci/nex -v 4 -p system_ext && rm 
 convert_br () {
 tg "- Repack *.dat.br"
 ls /tmp/ci/nex
-brotli -4 -jv system.new.dat -o system.new.dat.br
-brotli -4 -jv vendor.new.dat -o vendor.new.dat.br
-brotli -4 -jv product.new.dat -o product.new.dat.br
-brotli -4 -jv odm.new.dat -o odm.new.dat.br
-brotli -4 -jv system_ext.new.dat -o system_ext.new.dat.br
+brotli -6 -jv system.new.dat -o system.new.dat.br
+brotli -6 -jv vendor.new.dat -o vendor.new.dat.br
+brotli -6 -jv product.new.dat -o product.new.dat.br
+brotli -6 -jv odm.new.dat -o odm.new.dat.br
+brotli -6 -jv system_ext.new.dat -o system_ext.new.dat.br
 }
 
 final_zip () {
@@ -123,13 +132,17 @@ convert_br
 tg "- Zipping OTA Package"
 zip -r1v ${rom_name}-${branch_name}-Community-lavender-$(date +"%F-%H%S").zip *
 upload *.zip && exit 0
+if [ ! -d /tmp/rom/out/target/product/lavender ]; then
+mkdir -p /tmp/rom/out/target/product/lavender
+fi
+#mv -f *Community-lavender*.zip /tmp/rom/out/target/product/lavender
 }
 
 compile_plox () {
 # part 1
-get_system_ext
-get_system
-get_product
+#get_system_ext
+#get_system
+#get_product
 #get_vendor
 #get_odm
 #get_boot
