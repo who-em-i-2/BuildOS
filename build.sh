@@ -1,7 +1,7 @@
 # Normal build steps
 . build/envsetup.sh
-lunch voltage_lavender-user
-lunch voltage_lavender-ap3a-user
+lunch infinity_lavender-user
+lunch infinity_lavender-ap2a-user
 
 build_gapps=0
 
@@ -86,11 +86,19 @@ simg2img product.img product.img.raw
 simg2img odm.img odm.img.raw
 simg2img system_ext.img system_ext.img.raw
 echo "- Map dynamic partition"
-echo "resize system $(du -sb $PWD/system.img.raw  | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
-echo "resize vendor $(du -sb $PWD/vendor.img.raw  | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
-echo "resize product $(du -sb $PWD/product.img.raw  | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
-echo "resize odm $(du -sb $PWD/odm.img.raw  | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
-echo "resize system_ext $(du -sb $PWD/system_ext.img.raw  | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+if [ -e *.raw ]; then
+echo "resize system $(du -sb $PWD/system.img.raw | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+echo "resize vendor $(du -sb $PWD/vendor.img.raw | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+echo "resize product $(du -sb $PWD/product.img.raw | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+echo "resize odm $(du -sb $PWD/odm.img.raw | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+echo "resize system_ext $(du -sb $PWD/system_ext.img.raw | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+else
+echo "resize system $(du -sb $PWD/system.img | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+echo "resize vendor $(du -sb $PWD/vendor.img | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+echo "resize product $(du -sb $PWD/product.img | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+echo "resize odm $(du -sb $PWD/odm.img | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+echo "resize system_ext $(du -sb $PWD/system_ext.img. | cut -d - -f 1 | cut -d / -f 1)" >> dynamic_partitions_op_list
+fi
 echo "- Print dynamic_partitions_op_list"
 cat dynamic_partitions_op_list
 echo "- Cleanup raw images after collecting sizes for dynamic partition"
@@ -130,12 +138,13 @@ mv *Community*.zip /tmp/rom/out/target/product/lavender
 compile_plox () {
 # part 1
 #get_system_ext
-ger_product
-get_system
+#ger_product
+#get_system
 get_vendor
-get_odm
+#get_odm
 get_boot
 # part2 (choose manual zip or bacon if its not in parts)
 final_zip
+exit 0
 #m bacon -j8
 }
