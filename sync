@@ -65,7 +65,7 @@ rm -rf kernel/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/ke
 #rm -rf device/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/device_xiaomi_lavender-4.4 device/xiaomi/lavender -b 10
 #rm -rf vendor/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_lavender-4.4 vendor/xiaomi/lavender -b 10
 
-rm -rf external/wpa_supplicant_8; git clone https://github.com/NusantaraProject-ROM/android_external_wpa_supplicant_8 external/wpa_supplicant_8 -b 10
+#rm -rf external/wpa_supplicant_8; git clone https://github.com/NusantaraProject-ROM/android_external_wpa_supplicant_8 external/wpa_supplicant_8 -b 10
 
 # tree
 rm -rf vendor/lawnchair
