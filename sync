@@ -55,14 +55,15 @@ rm -rf vendor/lineage-priv/keys; git clone --depth=1 https://github.com/Nub-XD/v
 rm -rf device/qcom/sepolicy-legacy-um; git clone https://github.com/NusantaraProject-ROM/android_device_qcom_sepolicy-legacy-um device/qcom/sepolicy-legacy-um -b 10
 
 # tree
-#rm -rf device/xiaomi/lavender; git clone https://github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 10-CLO
-#rm -rf device/xiaomi/sdm660-common; git clone https://github.com/ImSpiDy/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 10
-#rm -rf vendor/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/vendor_lavender vendor/xiaomi/lavender -b 10
-#rm -rf vendor/xiaomi/sdm660-common; git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 10
-rm -rf kernel/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.4 kernel/xiaomi/lavender -b snx
+rm -rf device/xiaomi/lavender; git clone https://github.com/ImSpiDy/device_xiaomi_lavender device/xiaomi/lavender -b 10
+git -C device/xiaomi/lavender cherry-pick 479dc9ae6cc3b517b2c4a34a98cda453d6a36b2e
+rm -rf device/xiaomi/sdm660-common; git clone https://github.com/ImSpiDy/device_xiaomi_sdm660-common device/xiaomi/sdm660-common -b 10
+rm -rf vendor/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/vendor_lavender vendor/xiaomi/lavender -b 10
+rm -rf vendor/xiaomi/sdm660-common; git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_sdm660-common vendor/xiaomi/sdm660-common -b 10
+rm -rf kernel/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/kernel_xiaomi_lavender-4.4 kernel/xiaomi/lavender -b snx-ksu
 
-rm -rf device/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/device_xiaomi_lavender-4.4 device/xiaomi/lavender -b 10
-rm -rf vendor/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_lavender-4.4 vendor/xiaomi/lavender -b 10
+#rm -rf device/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/device_xiaomi_lavender-4.4 device/xiaomi/lavender -b 10
+#rm -rf vendor/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/vendor_xiaomi_lavender-4.4 vendor/xiaomi/lavender -b 10
 
 #rm -rf external/wpa_supplicant_8; git clone https://github.com/NusantaraProject-ROM/android_external_wpa_supplicant_8 external/wpa_supplicant_8 -b 10
 
