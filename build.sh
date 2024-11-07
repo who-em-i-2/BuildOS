@@ -140,7 +140,7 @@ fi
 
 compile_plox () {
 # part 1
-get_system_ext
+#get_system_ext
 get_system
 get_product
 #get_vendor
