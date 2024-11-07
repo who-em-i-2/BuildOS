@@ -68,7 +68,7 @@ rm -rf kernel/xiaomi/lavender; git clone --depth=1 https://github.com/ImSpiDy/ke
 #rm -rf external/wpa_supplicant_8; git clone https://github.com/NusantaraProject-ROM/android_external_wpa_supplicant_8 external/wpa_supplicant_8 -b 10
 
 # tree
-rm -rf vendor/lawnchair
+rm -rf vendor/lawnchair device/xiaomi/sdm660-common/vibrator
 
 cd build/soong
 curl https://github.com/AOSPA/android_build_soong/commit/836f9c45d042e3d197b505a08e52b8107bdf88b0.patch | git am
